@@ -14,7 +14,7 @@ export default class UserShow extends Component {
   // }
   // userFind(userId) {
   //   axios
-  //     .get("http://localhost:3001/api/v1/users/${this.props.params.id}")
+  //     .get("http://localhost:3001/api/v1/users/:id")
   //     .then(response => {
   //       this.setState({ user: response.data });
   //       console.log(response.data);
@@ -24,8 +24,10 @@ export default class UserShow extends Component {
   //     });
   // }
   componentDidMount() {
+    const { match: { params } } = this.props;
+
     axios
-      .get(`http://localhost:3001/api/v1/users/${props.match.params.id}`)
+      .get(`http://localhost:3001/api/v1/users/${params.id}`)
       .then(response => {
         this.setState({ user: response.data });
         console.log(response.data);

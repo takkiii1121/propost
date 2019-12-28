@@ -63,7 +63,7 @@ class UserListItem extends Component {
   render() {
     return (
       <p>
-        {this.props.user.name}{" "}
+        {this.props.user.name}
         <Link to={`/api/v1/users/${this.props.user.id}`}>Show</Link>
       </p>
     );
