@@ -11,6 +11,12 @@ export default class UserIndex extends Component {
     };
   }
   componentDidMount() {
+    this.userAll()
+  }
+  UNSAFE_componentWillReceiveProps() {
+    this.userAll()
+  }
+  userAll() {
     axios
       .get("http://localhost:3001/api/v1/users")
       .then(response => {
@@ -31,6 +37,8 @@ export default class UserIndex extends Component {
         <div>
           <h2>Users</h2>
           <UserList users={this.state.users} />
+          <br/>
+          <Link to="/api/v1/signup">Signup</Link>
         </div>
       );
     } else {
