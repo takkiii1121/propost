@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-# <<<<<<< HEAD
-# =======
+
     before_save {self.email = email.downcase}
     validates :name, presence: true, length: {maximum: 50}
     validates :email, presence: true, length: {maximum: 255},
@@ -8,5 +7,7 @@ class User < ApplicationRecord
                       uniqueness: {case_sensitive: false}
     has_secure_password
     has_secure_token :token
-# >>>>>>> users
+
+    has_many :posts
+
 end
