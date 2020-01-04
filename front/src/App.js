@@ -5,6 +5,7 @@ import UserSignUp from "./Component/UserSignUp";
 import UserLogin from "./Component/UserLogin";
 import PostIndex from "./Component/PostIndex";
 import PostShow from "./Component/PostShow";
+import PostNew from "./Component/PostNew";
 import { Route, Switch } from "react-router-dom";
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
         <Route exact path="/api/v1/login" component={UserLogin} />
         <Route exact path="/api/v1/posts" component={PostIndex} />
         <Route exact path="/api/v1/posts/:id" component={PostShow} />
+        <Route exact path="/api/v1/new" component={PostNew} />
       </Switch>
     );
   }
