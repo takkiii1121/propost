@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+    before_action :authenticate_token, only: [:index, :show]
     def index
         @users = User.order(created_at: :desc)
         render json: @users
@@ -24,14 +25,18 @@ class Api::V1::UsersController < ApplicationController
         render json: @user
     end
 
-    def destroy
-        @user = User.find(params[:id])
-        if @user.destroy
-            head :no_content, status: :ok
-        else
-            render json: @user.errors, status: :unprocessable_entity
+    def authenticate_token
+        time = DateTime.now
+        @users = User.where.not(token: "")
+        @users.each do |user|
+            if user.token_expire < time && user.token != ""
+                user.token = ""
+                user.token_expire = ""
+                user.save
+            end
         end
     end
+
 
     private
         

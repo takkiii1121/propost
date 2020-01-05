@@ -6,7 +6,8 @@ import UserLogin from "./Component/UserLogin";
 import PostIndex from "./Component/PostIndex";
 import PostShow from "./Component/PostShow";
 import PostNew from "./Component/PostNew";
-import { Route, Switch } from "react-router-dom";
+// import PrivateRoute from "./Component/PrivateRoute"
+import { Route, Switch, Redirect } from "react-router-dom";
 
 class App extends Component {
   render() {
@@ -18,10 +19,23 @@ class App extends Component {
         <Route exact path="/api/v1/login" component={UserLogin} />
         <Route exact path="/api/v1/posts" component={PostIndex} />
         <Route exact path="/api/v1/posts/:id" component={PostShow} />
-        <Route exact path="/api/v1/new" component={PostNew} />
+        <PrivateRoute exact path="/api/v1/new" component={PostNew} />
       </Switch>
     );
   }
 }
 
+
+const PrivateRoute = ({component: Component, isAuthenticated, ...rest}) => {
+  return (
+    <Route {...rest} render={(props) => {
+      if (!isAuthenticated) {
+        return <Redirect to={{pathname: '/api/v1/login'}} />
+      } else {
+        return <Component {...props} />
+      }
+    }}/>
+  )
+}
 export default App;
+

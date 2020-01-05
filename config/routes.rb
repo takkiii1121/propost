@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       namespace 'v1' do
           resources :users
           post '/login', to: 'login#login'
+          post '/logout', to: 'login#logout'
 
           resources :posts
       end
