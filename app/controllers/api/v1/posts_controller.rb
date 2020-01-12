@@ -1,6 +1,8 @@
 class Api::V1::PostsController < ApplicationController
+    before_action :authenticate!, only: [:create, :destroy]
+
     def index
-        @posts = Post.order(created_at: :desc)
+        @posts = current_user.posts.order(created_at: :desc)
         render json: @posts
     end
 
@@ -11,7 +13,7 @@ class Api::V1::PostsController < ApplicationController
     end
 
     def create 
-        @post = Post.new(post_params)
+        @post = current_user.posts.build(post_params)
         if @post.save
             render json: @post
         else
@@ -19,14 +21,9 @@ class Api::V1::PostsController < ApplicationController
         end
     end
 
-    def update
-        @post = Post.find(params[:id])
-        @post.update_attributes(post: params[:post])
-        render json: @post
-    end
 
     def destroy
-        @post = Post.find(params[:id])
+        @post = current_user.posts.find_by(id: params[:id])
         if @post.destroy
             head :no_content, status: :ok
         else

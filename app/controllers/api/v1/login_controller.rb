@@ -6,9 +6,9 @@ class Api::V1::LoginController < ApplicationController
       login_user.token = create_token
       login_user.token_expire = DateTime.now + 1
       login_user.save
-      render json: {user: login_user, isAuthenticated: true}
+      render json: {token: login_user.token, isAuthenticate: true}
     else
-      render json: {user: 'no auth', isAuthenticated: false}
+      render json: {isAuthenticate: false}
     end
   end
 
@@ -16,7 +16,7 @@ class Api::V1::LoginController < ApplicationController
   def logout
     @user = User.find(params[:id])
     if @user.token != "" && @user.token_expire != ""
-      @user.token = ""
+      @user.token = nil
       @user.token_expire = ""
       @user.save
       render json: @user

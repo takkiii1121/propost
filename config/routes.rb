@@ -5,6 +5,7 @@ Rails.application.routes.draw do
           resources :users
           post '/login', to: 'login#login'
           post '/logout', to: 'login#logout'
+          get '/me', to: 'users#me'
 
           resources :posts
       end
