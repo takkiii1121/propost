@@ -1,7 +1,6 @@
 class Api::V1::UsersController < ApplicationController
     before_action :authenticate_token, only: [:index, :show]
     before_action :authenticate!, only: [:update]
-    before_action :current_user, only: [:me]
 
     def index
         @users = User.order(created_at: :desc)
