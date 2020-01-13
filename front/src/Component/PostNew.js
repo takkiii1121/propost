@@ -2,14 +2,14 @@ import React, {Component} from "react"
 import SimpleMDEReact from "react-simplemde-editor"
 import "easymde/dist/easymde.min.css"
 import axios from "axios"
+import lscache from 'lscache'
 
 export default class PostNew extends Component {
     constructor() {
         super()
-        this.state = {title: "", content: ""}
+        this.state = {title: "", content: "", token: JSON.parse(lscache.get('token'))}
         this.handleChange = this.handleChange.bind(this);
-        this.handleChange2 = this.handleChange2
-        .bind(this);
+        this.handleChange2 = this.handleChange2.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     
@@ -25,13 +25,16 @@ export default class PostNew extends Component {
     handleSubmit(event) {
         alert('Posted!' + this.state.title)
         event.preventDefault()
+        const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
         const data = {content: this.state.content, title: this.state.title}
+
         console.log(data)
+        // console.log(this.state.content)
 
         axios
-            .post('http://localhost:3001/api/v1/posts', data)
+            .post('http://localhost:3001/api/v1/posts', data, headers)
             .then((response) => {
-                console.log(data)
+                console.log(response)
             })
             .catch((error) => {
                 console.log(error)

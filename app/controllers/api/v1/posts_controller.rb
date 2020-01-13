@@ -1,5 +1,6 @@
 class Api::V1::PostsController < ApplicationController
     before_action :authenticate!, only: [:create, :destroy]
+    before_action :current_user
 
     def index
         @posts = current_user.posts.order(created_at: :desc)
@@ -34,6 +35,6 @@ class Api::V1::PostsController < ApplicationController
     private
         
         def post_params
-            params.permit(:title, :content)
+            params.permit(:content, :title)
         end
 end

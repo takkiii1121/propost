@@ -23,8 +23,7 @@ export default class UserLogin extends Component {
                     token: response.data.token,
                     isAuthenticate: response.data.isAuthenticate
                 })
-                const token = JSON.stringify(response.data.token)
-                lscache.set('lscache-token', token, 1440)
+                lscache.set('token', response.data, 1440)
             })
             .catch((error) => {
                 console.log(error)
