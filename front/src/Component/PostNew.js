@@ -3,18 +3,19 @@ import SimpleMDEReact from "react-simplemde-editor"
 import "easymde/dist/easymde.min.css"
 import axios from "axios"
 import lscache from 'lscache'
+import marked from 'marked'
 
 export default class PostNew extends Component {
     constructor() {
         super()
-        this.state = {title: "", content: "", token: JSON.parse(lscache.get('token'))}
+        this.state = {title: "", content: "", token: lscache.get('token')}
         this.handleChange = this.handleChange.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     
     handleChange(content) {
-        this.setState({content: content})
+        this.setState({content: marked(content)})
         console.log(this.state.content)
     }
     handleChange2(event) {

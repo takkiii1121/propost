@@ -1,15 +1,25 @@
 class Api::V1::UsersController < ApplicationController
     before_action :authenticate_token, only: [:index, :show]
     before_action :authenticate!, only: [:update]
+    before_action :current_user
 
     def index
         @users = User.order(created_at: :desc)
-        render json: @users
+        if current_user != nil
+            render json: {users: @users, isAuthenticate: true}
+        else
+            render json: {users: @users, isAuthenticate: false}
+        end
     end
 
     def show
         @user = User.find(params[:id])
-        render json: @user
+        @posts = @user.posts.order(created_at: :desc)
+        if current_user != nil
+            render json: {user: @user, posts: @posts, isAuthenticate: true}
+        else
+            render json: {user: @user, posts: @posts, isAuthenticate: false}
+        end
     end
 
     def create 
@@ -19,12 +29,6 @@ class Api::V1::UsersController < ApplicationController
         else
             render json: @user.errors
         end
-    end
-
-    def update
-        @user = User.find(params[:id])
-        @user.update_attributes(user: params[:user])
-        render json: @user
     end
 
     def me
