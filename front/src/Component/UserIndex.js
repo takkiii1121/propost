@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import lscache from 'lscache'
 
 export default class UserIndex extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
-      users: []
+      users: [],
+      isAuthenticate: false,
+      token: lscache.get('token')
     };
   }
   componentDidMount() {
@@ -17,13 +19,14 @@ export default class UserIndex extends Component {
     this.userAll()
   }
   userAll() {
+    const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
     axios
-      .get("http://localhost:3001/api/v1/users")
+      .get("http://localhost:3001/api/v1/users", headers)
       .then(response => {
         console.log(response.data);
         this.setState({
-          loading: true,
-          users: response.data
+          users: response.data.users,
+          isAuthenticate: response.data.isAuthenticate
         });
       })
       .catch(error => {
@@ -32,23 +35,14 @@ export default class UserIndex extends Component {
       });
   }
   render() {
-    if (this.state.loading) {
-      return (
-        <div>
-          <h2>Users</h2>
-          <UserList users={this.state.users} />
-          <br/>
-          <Link to="/api/v1/signup">Signup</Link>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <h2>Users</h2>
-          <p>Loading...</p>
-        </div>
-      );
-    }
+    return (
+      <div>
+        <h2>Users</h2>
+        <UserList users={this.state.users} />
+        <br/>
+        <Link to="/api/v1/signup">Signup</Link>
+      </div>
+    );
   }
 }
 
@@ -63,9 +57,6 @@ class UserList extends Component {
     );
   }
 }
-// UserList.propsTypes = {
-//   users: PropTypes.array.isRequired
-// };
 
 class UserListItem extends Component {
   render() {
@@ -77,6 +68,4 @@ class UserListItem extends Component {
     );
   }
 }
-// UserListItem.propTypes = {
-//   user: PropTypes.object.isRequired
-// };
+

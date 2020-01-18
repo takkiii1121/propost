@@ -18,12 +18,12 @@ export default class UserLogin extends Component {
         axios
             .post('http://localhost:3001/api/v1/login', data)
             .then((response) => {
-                console.log(response.data)
+                console.log(response.data.token)
                 this.setState({
                     token: response.data.token,
                     isAuthenticate: response.data.isAuthenticate
                 })
-                lscache.set('token', response.data, 1440)
+                lscache.set('token', response.data.token, 1440)
             })
             .catch((error) => {
                 console.log(error)
@@ -52,10 +52,7 @@ export default class UserLogin extends Component {
 
 
 class UserSetToLocalStorage extends Component {
-    constructor(props) {
-        super(props)
-    }
-
+    
     render() {
         if (this.props.isAuthenticate) {
             return(

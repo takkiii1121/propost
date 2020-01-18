@@ -3,14 +3,22 @@ class Api::V1::PostsController < ApplicationController
     before_action :current_user
 
     def index
-        @posts = current_user.posts.order(created_at: :desc)
-        render json: @posts
+        @posts = Post.order(created_at: :desc)
+        if current_user != nil
+            render json: {posts: @posts, isAuthenticate: true}
+        else
+            render json: {posts: @posts, isAuthenticate: false}
+        end
     end
 
     def show
         @post = Post.find(params[:id])
         @user = @post.user
-        render json: {post: @post, user: @user}
+        if current_user != nil
+            render json: {post: @post, user: @user, isAuthenticate: true}
+        else
+            render json: {post: @post, user: @user, isAuthenticate: false}
+        end
     end
 
     def create 
