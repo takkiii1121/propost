@@ -18,10 +18,15 @@ class Logout extends Component {
         axios
             .post('http://localhost:3001/api/v1/logout', data)
             .then((response) => {
-                console.log(response)
-                lscache.remove('token')
-                this.props.history.push('/api/v1/posts')
-                window.location.reload()
+                console.log(response.data)
+                if (response.data.logout) {
+                    lscache.remove('token')
+                    this.props.history.push('/api/v1/posts')
+                    window.location.reload()
+                } else {
+                    console.log('not logged out yet')
+                }
+                
             })
             .catch((error) => {
                 console.log(error)
