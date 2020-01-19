@@ -5,6 +5,10 @@ class ApplicationController < ActionController::API
         @current_user ||= User.find_by(token: request.headers['Authorization'].split[1])
     end
 
+    def create_token
+        return ((0..9).to_a + ("a".."z").to_a + ("A".."Z").to_a).sample(50).join
+      end
+
     private
 
         def authenticate!

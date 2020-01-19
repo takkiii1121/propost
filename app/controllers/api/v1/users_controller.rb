@@ -1,7 +1,7 @@
 class Api::V1::UsersController < ApplicationController
     before_action :authenticate_token, only: [:index, :show]
     before_action :authenticate!, only: [:update]
-    before_action :current_user
+    before_action :current_user, only: [:index, :show, :me]
 
     def index
         @users = User.order(created_at: :desc)
@@ -24,10 +24,12 @@ class Api::V1::UsersController < ApplicationController
 
     def create 
         @user = User.new(user_params)
+        @user.token = create_token
+        @user.token_expire = DateTime.now + 1
         if @user.save
-            render json: @user
+            render json: {token: @user.token, isAuthenticate: true}
         else
-            render json: @user.errors
+            render json: {token: nil, isAuthenticate: false}
         end
     end
 

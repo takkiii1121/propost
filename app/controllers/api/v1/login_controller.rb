@@ -19,16 +19,9 @@ class Api::V1::LoginController < ApplicationController
       @user.token = nil
       @user.token_expire = ""
       @user.save
-      render json: @user
+      render json: {logout: true}
     else
-      render json: @user.error
+      render json: {logout: false}
     end
   end
-
-  
-
-  private
-    def create_token
-      return ((0..9).to_a + ("a".."z").to_a + ("A".."Z").to_a).sample(50).join
-    end
 end

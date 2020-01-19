@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import lscache from 'lscache';
 import { withRouter } from 'react-router';
+import lscache from 'lscache'
 
 class UserLogin extends Component {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super()
         this.state = {
             token: "",
-            isAuthenticate: false
+            isAuthenticate: null
         }
         this.handleSubmit = this.handleSubmit.bind(this)
     }
@@ -24,9 +24,13 @@ class UserLogin extends Component {
                     token: response.data.token,
                     isAuthenticate: response.data.isAuthenticate
                 })
-                lscache.set('token', response.data.token, 1440)
-                this.props.history.push('/api/v1/posts')
-                window.location.reload()
+                if (this.state.isAuthenticate) {
+                    lscache.set('token', this.state.token, 1440)
+                    this.props.history.push('/api/v1/posts')
+                    window.location.reload()
+                } else {
+                    console.log('not logined yet')
+                }
             })
             .catch((error) => {
                 console.log(error)
@@ -47,20 +51,22 @@ class UserLogin extends Component {
                     </div>
                     <button>Send</button>
                 </form>
-                <UserSetToLocalStorage isAuthenticate={this.state.isAuthenticate} />
+                <ResetToLscache isAuthenticate={this.state.isAuthenticate} />
             </div>
         )
     }
 }
 export default withRouter(UserLogin)
 
-
-class UserSetToLocalStorage extends Component {
-    
+class ResetToLscache extends Component {
     render() {
         if (this.props.isAuthenticate) {
             return(
                 <p>ログインに成功しました</p>
+            )
+        } else if (this.props.isAuthenticate == false) {
+            return(
+                <p>入力した情報が間違っています</p>
             )
         } else {
             return(
