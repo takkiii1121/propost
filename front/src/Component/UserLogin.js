@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import lscache from 'lscache';
+import { withRouter } from 'react-router';
 
-export default class UserLogin extends Component {
-    constructor() {
-        super()
+class UserLogin extends Component {
+    constructor(props) {
+        super(props)
         this.state = {
             token: "",
             isAuthenticate: false
@@ -24,6 +25,8 @@ export default class UserLogin extends Component {
                     isAuthenticate: response.data.isAuthenticate
                 })
                 lscache.set('token', response.data.token, 1440)
+                this.props.history.push('/api/v1/posts')
+                window.location.reload()
             })
             .catch((error) => {
                 console.log(error)
@@ -49,6 +52,7 @@ export default class UserLogin extends Component {
         )
     }
 }
+export default withRouter(UserLogin)
 
 
 class UserSetToLocalStorage extends Component {
