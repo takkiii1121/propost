@@ -9,7 +9,7 @@ import PostNew from "./Component/PostNew";
 import PrivateRoute from "./Component/PrivateRoute"
 import { Route, Switch } from "react-router-dom";
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <Switch>
@@ -25,5 +25,4 @@ class App extends Component {
   }
 }
 
-export default App;
 
