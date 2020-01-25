@@ -24,9 +24,9 @@ class Api::V1::PostsController < ApplicationController
     def create 
         @post = current_user.posts.build(post_params)
         if @post.save
-            render json: @post
+            render json: {posted: true}
         else
-            render json: @post.errors
+            render json: {posted: false}
         end
     end
 

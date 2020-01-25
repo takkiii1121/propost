@@ -8,12 +8,13 @@ class Logout extends Component {
     constructor(props) {
         super(props)
         this.handleClick = this.handleClick.bind(this)
+        this.notificationSystem = React.createRef()
     }
 
     handleClick(event) {
         event.preventDefault()
-        alert('ログアウトしてよろしいですか？')
         const data = {id: this.props.id}
+        const notification = this.notificationSystem.current
 
         axios
             .post('http://localhost:3001/api/v1/logout', data)
@@ -21,7 +22,7 @@ class Logout extends Component {
                 console.log(response.data)
                 if (response.data.logout) {
                     lscache.remove('token')
-                    this.props.history.push('/api/v1/posts')
+                    this.props.history.push({pathname: '/api/v1/posts', state: {message: "ログアウトしました", level: "success"}})
                     window.location.reload()
                 } else {
                     console.log('not logged out yet')

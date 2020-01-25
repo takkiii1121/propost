@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import lscache from 'lscache'
+import NotificationSystem from 'react-notification-system'
 
 export default class PostIndex extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
       posts: [],
       token: lscache.get('token'),
       isAuthenticate: false
     };
+    this.notificationSystem = React.createRef()
   }
   componentDidMount() {
     this.postAll()
@@ -21,37 +22,39 @@ export default class PostIndex extends Component {
   }
   postAll() {
     const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
+    const notification = this.notificationSystem.current
+
     axios
       .get("http://localhost:3001/api/v1/posts", headers)
       .then(response => {
         console.log(response.data);
         this.setState({
-          loading: true,
           posts: response.data.posts,
           isAuthenticate: response.data.isAuthenticate
         });
       })
       .catch(error => {
         console.log(error.response);
-        console.log("error!");
       });
+      if (this.props.location.state != undefined) {
+        const message = this.props.location.state.message
+        const level = this.props.location.state.level
+        console.log(message)
+        console.log(level)
+        notification.addNotification({
+          message: message,
+          level: level
+        })
+      }
   }
   render() {
-    if (this.state.loading) {
       return (
         <div>
+          <NotificationSystem ref={this.notificationSystem} />
           <h2>Posts</h2>
           <PostList posts={this.state.posts} />
         </div>
       );
-    } else {
-      return (
-        <div>
-          <h2>Posts</h2>
-          <p>Loading...</p>
-        </div>
-      );
-    }
   }
 }
 

@@ -4,14 +4,17 @@ import "easymde/dist/easymde.min.css"
 import axios from "axios"
 import lscache from 'lscache'
 import marked from 'marked'
+import { withRouter } from "react-router"
+import NotificationSystem from 'react-notification-system';
 
-export default class PostNew extends Component {
+class PostNew extends Component {
     constructor() {
         super()
         this.state = {title: "", content: "", token: lscache.get('token')}
         this.handleChange = this.handleChange.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.notificationSystem = React.createRef()
     }
     
     handleChange(content) {
@@ -24,10 +27,10 @@ export default class PostNew extends Component {
     }
     
     handleSubmit(event) {
-        alert('Posted!' + this.state.title)
         event.preventDefault()
         const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
         const data = {content: this.state.content, title: this.state.title}
+        const notification = this.notificationSystem.current
 
         console.log(data)
         // console.log(this.state.content)
@@ -35,7 +38,15 @@ export default class PostNew extends Component {
         axios
             .post('http://localhost:3001/api/v1/posts', data, headers)
             .then((response) => {
-                console.log(response)
+                console.log(response.data.posted)
+                if (response.data.posted) {
+                    this.props.history.push({pathname: '/api/v1/posts', state: {message: "投稿しました", level: "success"}})
+                } else {
+                    notification.addNotification({
+                        message: "投稿に失敗しました",
+                        level: "error"
+                    })
+                }
             })
             .catch((error) => {
                 console.log(error)
@@ -45,6 +56,7 @@ export default class PostNew extends Component {
     render() {
         return(
             <div>
+                <NotificationSystem ref={this.notificationSystem} />
                 <h2>new</h2>
                 <form onSubmit={this.handleSubmit} >
                     <input type="text" id="title" name="title" placeholder="title" title={this.state.title} onChange={this.handleChange2} />
@@ -61,3 +73,4 @@ export default class PostNew extends Component {
         )
     }
 }
+export default withRouter(PostNew)
