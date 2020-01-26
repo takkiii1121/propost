@@ -82,7 +82,6 @@ class PostListItem extends Component {
             <h4>{this.props.post.title}</h4>
             <div dangerouslySetInnerHTML={this.markup()}></div>
             <p>{this.props.post.created_at}</p>
-            <p>{this.props.post.user_id}</p>
             <Link to={`/api/v1/posts/${this.props.post.id}`}>Show</Link>
         </div>
     );
