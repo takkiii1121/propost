@@ -8,13 +8,11 @@ class Logout extends Component {
     constructor(props) {
         super(props)
         this.handleClick = this.handleClick.bind(this)
-        this.notificationSystem = React.createRef()
     }
 
     handleClick(event) {
         event.preventDefault()
         const data = {id: this.props.id}
-        const notification = this.notificationSystem.current
 
         axios
             .post('http://localhost:3001/api/v1/logout', data)
