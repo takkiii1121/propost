@@ -15,10 +15,10 @@ class Api::V1::UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @posts = @user.posts.order(created_at: :desc)
-        if current_user != nil
-            render json: {user: @user, posts: @posts, isAuthenticate: true}
-        else
-            render json: {user: @user, posts: @posts, isAuthenticate: false}
+        if @user == @current_user
+            render json: {user: @user, posts: @posts, mypage: true}
+        else 
+            render json: {user: @user, posts: @posts, mypage: false}
         end
     end
 

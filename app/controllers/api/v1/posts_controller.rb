@@ -1,6 +1,7 @@
 class Api::V1::PostsController < ApplicationController
     before_action :authenticate!, only: [:create, :destroy]
     before_action :current_user
+    before_action :correct_user, only: [:destroy]
 
     def index
         @posts = Post.order(created_at: :desc)
@@ -32,17 +33,20 @@ class Api::V1::PostsController < ApplicationController
 
 
     def destroy
-        @post = current_user.posts.find_by(id: params[:id])
-        if @post.destroy
-            head :no_content, status: :ok
-        else
-            render json: @post.errors, status: :unprocessable_entity
-        end
+        @post.destroy
+        render json: {destroy: true, post: @post, current_user: @current_user}
     end
 
     private
         
         def post_params
             params.permit(:content, :title)
+        end
+
+        def correct_user
+            @post = current_user.posts.find_by(id: params[:id])
+            unless @post
+                render json: {destroy: false, post: @post, current_user: nil}
+            end
         end
 end
