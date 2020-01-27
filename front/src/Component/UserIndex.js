@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import lscache from 'lscache'
+import { Card, CardLink, CardTitle, CardTime } from "../StyledComponent/Card";
+import { PageTitle } from "../StyledComponent/PageTitle";
 
 export default class UserIndex extends Component {
   constructor(props) {
@@ -37,10 +39,8 @@ export default class UserIndex extends Component {
   render() {
     return (
       <div>
-        <h2>Users</h2>
+        <PageTitle>ユーザー一覧</PageTitle>
         <UserList users={this.state.users} />
-        <br/>
-        <Link to="/api/v1/signup">Signup</Link>
       </div>
     );
   }
@@ -61,10 +61,13 @@ class UserList extends Component {
 class UserListItem extends Component {
   render() {
     return (
-      <p>
-        {this.props.user.name}
-        <Link to={`/api/v1/users/${this.props.user.id}`}>Show</Link>
-      </p>
+      <Card>
+        <CardTitle>{this.props.user.name}</CardTitle>
+        <CardTime>{this.props.user.created_at}に登録しました</CardTime>
+        <CardLink>
+          <Link to={`/api/v1/users/${this.props.user.id}`}>Show</Link>
+        </CardLink>
+      </Card>
     );
   }
 }

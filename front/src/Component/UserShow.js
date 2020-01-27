@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import lscache from "lscache"
 import PostDestroy from "./PostDestroy";
 import NotificationSystem from 'react-notification-system'
+import { Card, CardTitle, CardBody, CardLink, CardTime } from "../StyledComponent/Card";
+import { PageTitle } from "../StyledComponent/PageTitle";
 
 export default class UserShow extends Component {
   constructor(props) {
@@ -47,9 +49,8 @@ export default class UserShow extends Component {
     return (
       <div>
         <NotificationSystem ref={this.notificationSystem} />
-        <h2>Show</h2>
-        <p>{this.state.user.name}</p>
-        <p>{this.state.user.created_at}</p>
+        <PageTitle>{this.state.user.name}さんのページ</PageTitle>
+        <p>{this.state.user.created_at}に登録しました</p>
         <PostList posts={this.state.posts} mypage={this.state.mypage} />
       </div>
     );
@@ -77,22 +78,26 @@ class PostListItem extends Component {
   render() {
     if (this.props.mypage) {
       return (
-        <div>
-            <h4>{this.props.post.title}</h4>
-            <div dangerouslySetInnerHTML={this.markup()}></div>
-            <p>{this.props.post.created_at}</p>
-            <Link to={`/api/v1/posts/${this.props.post.id}`}>Show</Link>
-            <PostDestroy id={this.props.post.id} />
-        </div>
+        <Card>
+            <CardTitle>{this.props.post.title}</CardTitle>
+            <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
+            <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
+            <CardLink>
+              <Link to={`/api/v1/posts/${this.props.post.id}`}>Show</Link>
+              <PostDestroy id={this.props.post.id} />
+            </CardLink>
+        </Card>
       );
     } else {
       return (
-        <div>
-            <h4>{this.props.post.title}</h4>
-            <div dangerouslySetInnerHTML={this.markup()}></div>
-            <p>{this.props.post.created_at}</p>
-            <Link to={`/api/v1/posts/${this.props.post.id}`}>Show</Link>
-        </div>
+        <Card>
+            <CardTitle>{this.props.post.title}</CardTitle>
+            <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
+            <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
+            <CardLink>
+              <Link to={`/api/v1/posts/${this.props.post.id}`}>Show</Link>
+            </CardLink>
+        </Card>
       );
     }   
   }
