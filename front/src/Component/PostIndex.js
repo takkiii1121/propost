@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import lscache from 'lscache'
 import NotificationSystem from 'react-notification-system'
+import {Card, CardTitle, CardBody, CardTime, CardLink} from '../StyledComponent/Card.js'
+import {PageTitle} from '../StyledComponent/PageTitle'
 
 export default class PostIndex extends Component {
   constructor(props) {
@@ -51,7 +53,7 @@ export default class PostIndex extends Component {
       return (
         <div>
           <NotificationSystem ref={this.notificationSystem} />
-          <h2>Posts</h2>
+          <PageTitle>記事一覧</PageTitle>
           <PostList posts={this.state.posts} />
         </div>
       );
@@ -70,7 +72,6 @@ class PostList extends Component {
   }
 }
 
-
 class PostListItem extends Component {
   markup() {
     const html = this.props.post.content
@@ -78,12 +79,14 @@ class PostListItem extends Component {
   }
   render() {
       return (
-        <div>
-            <h4>{this.props.post.title}</h4>
-            <div dangerouslySetInnerHTML={this.markup()}></div>
-            <p>{this.props.post.created_at}</p>
-            <Link to={`/api/v1/posts/${this.props.post.id}`}>Show</Link>
-        </div>
+        <Card>
+            <CardTitle>{this.props.post.title}</CardTitle>
+            <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
+            <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
+            <CardLink>
+              <Link to={`/api/v1/posts/${this.props.post.id}`}>Show</Link>
+            </CardLink>
+        </Card>
     );
   }
 }

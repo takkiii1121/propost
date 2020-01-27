@@ -1,3 +1,4 @@
+
 import React, {Component} from 'react'
 import lscache from 'lscache'
 import { Link } from "react-router-dom";
@@ -6,8 +7,12 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
+import styled from 'styled-components'
 import Logout from './UserLogout'
 
+const Navbar = styled.div`
+    background: #6088C6;
+`
 
 export default class Navbar extends Component {
     constructor() {
@@ -36,15 +41,17 @@ export default class Navbar extends Component {
     render() {
         if (this.state.currentUser != null) {
             return(
+                <Navbar>
                 <AppBar position="static">
                     <Toolbar>
                         <Typography variant="h6" className={"title"}>Programmer Post</Typography>
                         <h3>{this.state.currentUser.name}さん</h3>
-                        <Button color="EB8686" href='/api/v1/new'>New</Button>
+                        <Button color="inherit" href='/api/v1/new'>New</Button>
                         <Link to={`/api/v1/users/${this.state.currentUser.id}`}>My Page</Link>
                         <Logout id={this.state.currentUser.id} />
                     </Toolbar>
                 </AppBar>
+                </Navbar>
             )
         } else {
             return(

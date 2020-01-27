@@ -3,13 +3,15 @@ import axios from 'axios';
 import { withRouter } from 'react-router';
 import lscache from 'lscache'
 import NotificationSystem from 'react-notification-system';
+import {Input, Field, Label, FormPage, Button} from '../StyledComponent/Form'
 
 class UserSignUp extends Component {
     constructor() {
         super()
         this.state = {
             token: "",
-            isAuthenticate: null
+            isAuthenticate: null,
+            active: false
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.notificationSystem = React.createRef()
@@ -43,30 +45,37 @@ class UserSignUp extends Component {
                 console.log(error)
             })
     }
+
+    moveForm() {
+        this.setState({
+            active: true
+        })
+    }
+
     render() {
         return(
-            <div>
+            <FormPage>
                 <NotificationSystem ref={this.notificationSystem} />
                 <form onSubmit={this.handleSubmit}>
-                    <div className="field">
-                        <label htmlFor="user_name">Name</label><br/>
-                        <input type="text" id="user_name" name="name" />
-                    </div>
-                    <div className="field">
-                        <label htmlFor="user_email">Email</label><br/>
-                        <input type="email" id="user_email" name="email" />
-                    </div>
-                    <div className="field">
-                        <label htmlFor="user_password">Password</label><br/>
-                        <input type="password" id="user_password" name="password" />
-                    </div>
-                    <div className="field">
-                        <label htmlFor="user_password_confirmation">Password Confirmation</label><br/>
-                        <input type="password" id="user_password_confirmation" name="password_confirmation" />
-                    </div>
-                    <button>Send</button>
+                    <Field className="field">
+                        <Label htmlFor="user_name" active={this.state.active}>Name</Label>
+                        <Input type="text" name="name" onClick={() => this.moveForm()} active={this.state.active} />
+                    </Field>
+                    <Field className="field">
+                        <Label htmlFor="user_email" active={this.state.active}>Email</Label>
+                        <Input type="email" name="email" onClick={() => this.moveForm()} active={this.state.active} />
+                    </Field>
+                    <Field className="field">
+                        <Label htmlFor="user_password" active={this.state.active}>Password</Label>
+                        <Input type="password" name="password" onClick={() => this.moveForm()} active={this.state.active} />
+                    </Field>
+                    <Field className="field">
+                        <Label htmlFor="user_password_confirmation" active={this.state.active}>Password Confirmation</Label>
+                        <Input type="password" name="password_confirmation" onClick={() => this.moveForm()} active={this.state.active} />
+                    </Field>
+                    <Button>Send</Button>
                 </form>
-            </div>
+            </FormPage>
         )
     }
 }

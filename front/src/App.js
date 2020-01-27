@@ -8,10 +8,17 @@ import PostShow from "./Component/PostShow";
 import PostNew from "./Component/PostNew";
 import PrivateRoute from "./Component/PrivateRoute"
 import { Route, Switch } from "react-router-dom";
+import styled from 'styled-components'
+
+const Body = styled.div`
+    width: 80%;
+    float: right;
+`
 
 export default class App extends Component {
   render() {
     return (
+      <Body>
       <Switch>
         <Route exact path="/api/v1/users" component={UserIndex} />
         <Route exact path="/api/v1/users/:id" component={UserShow} />
@@ -21,6 +28,7 @@ export default class App extends Component {
         <Route exact path="/api/v1/posts/:id" component={PostShow} />
         <PrivateRoute exact path="/api/v1/new" component={PostNew} />
       </Switch>
+      </Body>
     );
   }
 }
