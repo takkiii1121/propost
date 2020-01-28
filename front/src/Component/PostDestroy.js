@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import axios from "axios";
-import Button from '@material-ui/core/Button';
 import lscache from 'lscache'
 import NotificationSystem from 'react-notification-system'
 import { withRouter } from 'react-router'
+import {DestroyButton} from '../StyledComponent/Card'
 
 class PostDestroy extends Component {
     constructor(props) {
@@ -45,7 +45,7 @@ class PostDestroy extends Component {
         return(
             <div>
                 <NotificationSystem ref={this.notificationSystem} />
-                <Button onClick={this.handleClick}>DELETE</Button>
+                <DestroyButton onClick={this.handleClick}>削除する</DestroyButton>
             </div>
         )
     }

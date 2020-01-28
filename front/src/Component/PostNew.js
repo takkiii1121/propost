@@ -6,6 +6,8 @@ import lscache from 'lscache'
 import marked from 'marked'
 import { withRouter } from "react-router"
 import NotificationSystem from 'react-notification-system';
+import { PageColor, PageTitle } from "../StyledComponent/Page"
+import {CreateButton, TitleInput, MarkdownInput} from "../StyledComponent/Form"
 
 class PostNew extends Component {
     constructor() {
@@ -55,20 +57,22 @@ class PostNew extends Component {
 
     render() {
         return(
-            <div>
+            <PageColor>
                 <NotificationSystem ref={this.notificationSystem} />
-                <h2>new</h2>
+                <PageTitle>new</PageTitle>
                 <form onSubmit={this.handleSubmit} >
-                    <input type="text" id="title" name="title" placeholder="title" title={this.state.title} onChange={this.handleChange2} />
-                    <SimpleMDEReact 
-                        content={this.state.content}
-                        onChange={this.handleChange}
-                        options={{
-                            forceSync: true
-                        }} />
-                    <button>Send</button>
+                    <TitleInput type="text" id="title" name="title" placeholder="title" title={this.state.title} onChange={this.handleChange2} />
+                    <MarkdownInput>
+                        <SimpleMDEReact 
+                            content={this.state.content}
+                            onChange={this.handleChange}
+                            options={{
+                                forceSync: true
+                            }} />
+                    </MarkdownInput>
+                    <CreateButton>Send</CreateButton>
                 </form>
-            </div>
+            </PageColor>
             
         )
     }

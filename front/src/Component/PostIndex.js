@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import lscache from 'lscache'
 import NotificationSystem from 'react-notification-system'
-import {Card, CardTitle, CardBody, CardTime, CardLink} from '../StyledComponent/Card.js'
-import {PageTitle} from '../StyledComponent/PageTitle'
+import {Card, CardTitle, CardBody, CardTime, CardLink, CardLinkCenter} from '../StyledComponent/Card.js'
+import {PageTitle, PageColor} from '../StyledComponent/Page'
 
 export default class PostIndex extends Component {
   constructor(props) {
@@ -51,11 +51,11 @@ export default class PostIndex extends Component {
   }
   render() {
       return (
-        <div>
+        <PageColor>
           <NotificationSystem ref={this.notificationSystem} />
-          <PageTitle>記事一覧</PageTitle>
+          <PageTitle>新着記事</PageTitle>
           <PostList posts={this.state.posts} />
-        </div>
+        </PageColor>
       );
   }
 }
@@ -83,9 +83,9 @@ class PostListItem extends Component {
             <CardTitle>{this.props.post.title}</CardTitle>
             <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
             <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
-            <CardLink>
-              <Link to={`/api/v1/posts/${this.props.post.id}`}>Show</Link>
-            </CardLink>
+            <CardLinkCenter>
+              <CardLink to={`/api/v1/posts/${this.props.post.id}`}>続きを見る</CardLink>
+            </CardLinkCenter>
         </Card>
     );
   }

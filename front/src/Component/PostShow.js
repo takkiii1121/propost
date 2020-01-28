@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import lscache from 'lscache'
+import { PageTitle, PageText, PageColor, PostBody, PageLink } from "../StyledComponent/Page";
 
 export default class PostShow extends Component {
   constructor(props) {
@@ -39,12 +40,12 @@ export default class PostShow extends Component {
 
   render() {
     return (
-      <div>
-        <h2>title: {this.state.post.title}</h2>
-        <p>{this.state.post.created_at}</p>
-        <p>user: {this.state.user.name}</p>
-        <div dangerouslySetInnerHTML={this.markup()}></div>
-      </div>
+      <PageColor>
+        <PageTitle>{this.state.post.title}</PageTitle>
+        <PageText>{this.state.post.created_at}に投稿しました</PageText>
+        <PageLink to={`/api/v1/users/${this.state.user.id}`}>著者：{this.state.user.name}</PageLink>
+        <PostBody dangerouslySetInnerHTML={this.markup()}></PostBody>
+      </PageColor>
     );
   }
 }
