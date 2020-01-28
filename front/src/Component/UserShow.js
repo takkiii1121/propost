@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import lscache from "lscache"
 import PostDestroy from "./PostDestroy";
 import NotificationSystem from 'react-notification-system'
-import { Card, CardTitle, CardBody, CardLink, CardTime } from "../StyledComponent/Card";
-import { PageTitle } from "../StyledComponent/PageTitle";
+import { Card, CardTitle, CardBody, CardLink, CardTime, CardLinkCenter } from "../StyledComponent/Card";
+import { PageTitle, PageColor, PageText } from "../StyledComponent/Page";
 
 export default class UserShow extends Component {
   constructor(props) {
@@ -47,12 +47,12 @@ export default class UserShow extends Component {
   }
   render() {
     return (
-      <div>
+      <PageColor>
         <NotificationSystem ref={this.notificationSystem} />
         <PageTitle>{this.state.user.name}さんのページ</PageTitle>
-        <p>{this.state.user.created_at}に登録しました</p>
+        <PageText>{this.state.user.created_at}に登録しました</PageText>
         <PostList posts={this.state.posts} mypage={this.state.mypage} />
-      </div>
+      </PageColor>
     );
   }
 }
@@ -82,10 +82,10 @@ class PostListItem extends Component {
             <CardTitle>{this.props.post.title}</CardTitle>
             <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
             <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
-            <CardLink>
-              <Link to={`/api/v1/posts/${this.props.post.id}`}>Show</Link>
+            <CardLinkCenter>
+              <CardLink to={`/api/v1/posts/${this.props.post.id}`}>続きを見る</CardLink>
               <PostDestroy id={this.props.post.id} />
-            </CardLink>
+            </CardLinkCenter>
         </Card>
       );
     } else {
@@ -94,9 +94,9 @@ class PostListItem extends Component {
             <CardTitle>{this.props.post.title}</CardTitle>
             <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
             <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
-            <CardLink>
-              <Link to={`/api/v1/posts/${this.props.post.id}`}>Show</Link>
-            </CardLink>
+            <CardLinkCenter>
+              <CardLink to={`/api/v1/posts/${this.props.post.id}`}>続きを見る</CardLink>
+            </CardLinkCenter>
         </Card>
       );
     }   

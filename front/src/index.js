@@ -8,7 +8,7 @@ import styled from 'styled-components'
 const Container = styled.article`;
   width: 100%;
   min-height: 2000px;
-  background: #f5f5f5;
+  background: #6088c6;
 `;
 
 ReactDOM.render(

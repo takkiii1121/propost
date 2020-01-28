@@ -1,37 +1,64 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export const Card = styled.div`
-    margin: 30px;
+    margin: 20px;
     padding: 10px;
-    width: 40%;
+    width: 80%;
     background: #fff;
-    border-radius: 5px;
+    border-radius: 20px;
     display: inline-block;
+    border-color: #aec4e5;
+    border-style: solid;
+    border-width: 2px;
+    overflow: hidden;
 `
 
 export const CardTitle = styled.div`
     font-size: 200%;
     margin: 10px 30px;
     font-weight: bold;
+    color: #696969;
 `
 
 export const CardBody = styled.div`
     margin: 30px;
     font-size: 100%;
     max-height: 50px;
-    color: #808080;
+    color: #969696;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 `
 
 export const CardTime = styled.div`
-    margin: 10px;
+    margin: 20px;
     text-align: right;
-    font-size: 50%;
+    font-size: 15px;
+    color: #969696;
 `
 
-export const CardLink = styled.div`
+export const CardLink = styled(Link)`
     text-align: center;
     margin: auto;
-    padding: 5px;
-    border-radius: 5px;
-    background: #ccc;
+    padding: 10px 385px;
+    border-radius: 20px;
+    background: #aec4e5;
+    color: #fff;
+    text-decoration: none;
+`
+
+export const CardLinkCenter = styled.div`
+    text-align: center;
+`
+
+export const DestroyButton = styled.button`
+    color: #fff;
+    background: #eb8686;
+    border-radius: 20px;
+    text-align: center;
+    margin: 10px;
+    font-size: 16px;
+    width: 95%;
+    padding: 5px 390px;
 `

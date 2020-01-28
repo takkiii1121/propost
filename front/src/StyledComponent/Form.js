@@ -28,9 +28,7 @@ export const Label = styled.div`
 `
 
 export const FormPage = styled.div`
-    background: #6088c6;
     padding: 10px;
-    min-height: 1915px;
 `
 
 export const Button = styled.button`
@@ -46,4 +44,35 @@ export const Button = styled.button`
     &:hover {
         background: #f09090;
     }
+`
+export const CreateButton = styled.button`
+    width: 100px;
+    height: 40px;
+    float: right;
+    margin: 10px 30px;
+    color: #fff;
+    background: #eb8686;
+    border-radius: 20px;
+    border-color: #eb8686;
+    outline: 0;
+    font-size: 20px;
+    &:hover {
+        background: #f09090;
+    }
+`
+
+export const TitleInput = styled.input`
+    outline: 0;
+    font-size: 30px;
+    border-width: 0 0 2px 0;
+    margin: 10px 20px;
+    padding: 10px;
+    border-color: #ccc;
+    color: #666666;
+`
+
+export const MarkdownInput = styled.div`
+    margin: 20px;
+    padding: 10px;
+    font-size: 30px;
 `
