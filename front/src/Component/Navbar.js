@@ -1,15 +1,16 @@
 import React, {Component} from 'react'
 import lscache from 'lscache'
-import { Link } from "react-router-dom";
 import axios from "axios";
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Logout from './UserLogout'
+import {withStyles} from '@material-ui/styles';
+import {commonStyle, NavLink, RightBar} from '../StyledComponent/AppBar'
 
 
-export default class Navbar extends Component {
+class Navbar extends Component {
     constructor() {
         super()
         this.state = {
@@ -36,25 +37,30 @@ export default class Navbar extends Component {
     render() {
         if (this.state.currentUser != null) {
             return(
-                <AppBar position="static">
+                <AppBar position="relative" classes={{colorPrimary: this.props.classes.appBarColorDefault}}>
                     <Toolbar>
                         <Typography variant="h6" className={"title"}>Programmer Post</Typography>
-                        <h3>{this.state.currentUser.name}さん</h3>
-                        <Button color="EB8686" href='/api/v1/new'>New</Button>
-                        <Link to={`/api/v1/users/${this.state.currentUser.id}`}>My Page</Link>
-                        <Logout id={this.state.currentUser.id} />
+                        <RightBar>
+                            <Button color="inherit" href='/api/v1/new'>New</Button>
+                            <NavLink to={`/api/v1/users/${this.state.currentUser.id}`}>
+                                <Button color="inherit">My Page</Button>
+                            </NavLink>
+                            <Logout id={this.state.currentUser.id} />
+                        </RightBar>
                     </Toolbar>
                 </AppBar>
             )
         } else {
             return(
-                <AppBar position="static">
+                <AppBar position="relative" classes={{colorPrimary: this.props.classes.appBarColorDefault}}>
                     <Toolbar>
                         <Typography variant="h6" className={"title"}>
                         Programmer Post
                         </Typography>
-                        <Button color="inherit" href='/api/v1/signup'>Sign Up</Button>
-                        <Button color="inherit" href='/api/v1/login'>Login</Button>
+                        <RightBar>
+                            <Button color="inherit" href='/api/v1/signup'>Sign Up</Button>
+                            <Button color="inherit" href='/api/v1/login'>Login</Button>
+                        </RightBar>
                     </Toolbar>
                 </AppBar>
             )
@@ -62,4 +68,4 @@ export default class Navbar extends Component {
     }
 }
 
-
+export default withStyles(commonStyle)(Navbar)
