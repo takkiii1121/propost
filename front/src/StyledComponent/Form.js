@@ -15,7 +15,7 @@ export const Input = styled.input`
 `
 
 export const Field = styled.div`
-    margin: 10px 0 30px 15%;
+    margin: 10px 0 30px 10%;
     position: static;
     width: 100%+
 `
@@ -30,12 +30,13 @@ export const Label = styled.div`
 
 export const FormPage = styled.div`
     padding: 10px;
+    margin: ${props => props.margin};
 `
 
 export const Button = styled.button`
-    width: 50%;
+    width: 53%;
     height: 40px;
-    margin: 50px 0 30px 15%;
+    margin: 50px 0 30px 10%;
     border-radius: 20px;
     background: #eb8686;
     color: #fff;

@@ -55,7 +55,7 @@ class UserLogin extends Component {
 
     render() {
         return(
-            <FormPage>
+            <FormPage margin={'100px'}>
                 <NotificationSystem ref={this.notificationSystem} />
                 <form onSubmit={this.handleSubmit}>
                     <Field className="field" >
