@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import lscache from "lscache"
 import PostDestroy from "./PostDestroy";
 import NotificationSystem from 'react-notification-system'
-import { Card, CardTitle, CardBody, CardLink, CardTime, CardLinkCenter } from "../StyledComponent/Card";
+import { Card, CardTitle, CardBody, CardTime, CardLinkCenter, Button } from "../StyledComponent/Card";
 import { PageTitle, PageColor, PageText } from "../StyledComponent/Page";
 
 export default class UserShow extends Component {
@@ -83,7 +83,9 @@ class PostListItem extends Component {
             <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
             <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
             <CardLinkCenter>
-              <CardLink to={`/api/v1/posts/${this.props.post.id}`}>続きを見る</CardLink>
+              <Link to={`/api/v1/posts/${this.props.post.id}`}>
+                <Button color={'#aec4e5'} hover={'#bbd1f2'}>続きを見る</Button>
+              </Link>
               <PostDestroy id={this.props.post.id} />
             </CardLinkCenter>
         </Card>
@@ -95,7 +97,9 @@ class PostListItem extends Component {
             <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
             <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
             <CardLinkCenter>
-              <CardLink to={`/api/v1/posts/${this.props.post.id}`}>続きを見る</CardLink>
+              <Link to={`/api/v1/posts/${this.props.post.id}`}>
+                <Button color={'#aec4e5'} hover={'#bbd1f2'}>続きを見る</Button>
+              </Link>
             </CardLinkCenter>
         </Card>
       );

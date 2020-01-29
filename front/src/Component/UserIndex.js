@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import lscache from 'lscache'
-import { Card, CardLink, CardTitle, CardTime, CardLinkCenter } from "../StyledComponent/Card";
+import { Card, CardTitle, CardTime, CardLinkCenter, Button} from "../StyledComponent/Card";
 import { PageTitle, PageColor } from "../StyledComponent/Page";
 
 export default class UserIndex extends Component {
@@ -65,7 +65,9 @@ class UserListItem extends Component {
         <CardTitle>{this.props.user.name}</CardTitle>
         <CardTime>{this.props.user.created_at}に登録しました</CardTime>
         <CardLinkCenter>
-          <CardLink to={`/api/v1/users/${this.props.user.id}`}>詳細を見る</CardLink>
+          <Link to={`/api/v1/users/${this.props.user.id}`}>
+            <Button color={'#aec4e5'} hover={'#bbd1f2'}>詳細を見る</Button>
+          </Link>
         </CardLinkCenter>
       </Card>
     );

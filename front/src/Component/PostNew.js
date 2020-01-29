@@ -59,9 +59,9 @@ class PostNew extends Component {
         return(
             <PageColor>
                 <NotificationSystem ref={this.notificationSystem} />
-                <PageTitle>new</PageTitle>
+                <PageTitle>記事作成</PageTitle>
                 <form onSubmit={this.handleSubmit} >
-                    <TitleInput type="text" id="title" name="title" placeholder="title" title={this.state.title} onChange={this.handleChange2} />
+                    <TitleInput type="text" id="title" name="title" placeholder="Title" title={this.state.title} onChange={this.handleChange2} />
                     <MarkdownInput>
                         <SimpleMDEReact 
                             content={this.state.content}
