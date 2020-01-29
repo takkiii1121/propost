@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import lscache from 'lscache'
 import NotificationSystem from 'react-notification-system'
-import {Card, CardTitle, CardBody, CardTime, CardLink, CardLinkCenter} from '../StyledComponent/Card.js'
+import {Card, CardTitle, CardBody, CardTime, CardLinkCenter, Button} from '../StyledComponent/Card.js'
 import {PageTitle, PageColor} from '../StyledComponent/Page'
+
 
 export default class PostIndex extends Component {
   constructor(props) {
@@ -84,7 +85,9 @@ class PostListItem extends Component {
             <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
             <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
             <CardLinkCenter>
-              <CardLink to={`/api/v1/posts/${this.props.post.id}`}>続きを見る</CardLink>
+              <Link to={`/api/v1/posts/${this.props.post.id}`}>
+                <Button color={'#aec4e5'} hover={'#bbd1f2'}>続きを見る</Button>
+              </Link>
             </CardLinkCenter>
         </Card>
     );

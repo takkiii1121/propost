@@ -9,14 +9,15 @@ export const Input = styled.input`
     border-color: #fff;
     color: #fff;
     background: rgba(0,0,0,0);
-    width: 500px;
     font-size: 30px;
     outline: 0;
+    width: 58%;
 `
 
 export const Field = styled.div`
-    margin: 50px 0 30px 15%;
+    margin: 10px 0 30px 15%;
     position: static;
+    width: 100%+
 `
 
 export const Label = styled.div`
@@ -32,7 +33,7 @@ export const FormPage = styled.div`
 `
 
 export const Button = styled.button`
-    width: 500px;
+    width: 50%;
     height: 40px;
     margin: 50px 0 30px 15%;
     border-radius: 20px;
@@ -42,7 +43,7 @@ export const Button = styled.button`
     border-color: #eb8686;
     outline: 0;
     &:hover {
-        background: #f09090;
+        background: #ee9797;
     }
 `
 export const CreateButton = styled.button`

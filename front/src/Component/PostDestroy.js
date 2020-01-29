@@ -3,7 +3,7 @@ import axios from "axios";
 import lscache from 'lscache'
 import NotificationSystem from 'react-notification-system'
 import { withRouter } from 'react-router'
-import {DestroyButton} from '../StyledComponent/Card'
+import {Button} from '../StyledComponent/Card'
 
 class PostDestroy extends Component {
     constructor(props) {
@@ -45,7 +45,7 @@ class PostDestroy extends Component {
         return(
             <div>
                 <NotificationSystem ref={this.notificationSystem} />
-                <DestroyButton onClick={this.handleClick}>削除する</DestroyButton>
+                <Button color={'#eb8686'} hover={'#ee9797'} onClick={this.handleClick}>削除する</Button>
             </div>
         )
     }

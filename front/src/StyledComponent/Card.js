@@ -40,8 +40,7 @@ export const CardTime = styled.div`
 
 export const CardLink = styled(Link)`
     text-align: center;
-    margin: auto;
-    padding: 10px 385px;
+    padding: 10px 43%;
     border-radius: 20px;
     background: #aec4e5;
     color: #fff;
@@ -52,13 +51,17 @@ export const CardLinkCenter = styled.div`
     text-align: center;
 `
 
-export const DestroyButton = styled.button`
+export const Button = styled.button`
     color: #fff;
-    background: #eb8686;
+    background: ${props => props.color};
+    border-color: ${props => props.color};
     border-radius: 20px;
     text-align: center;
-    margin: 10px;
+    margin: 5px 10px;
     font-size: 16px;
     width: 95%;
-    padding: 5px 390px;
+    padding: 5px 5%;
+    &:hover {
+        background: ${props => props.hover};
+    }
 `
