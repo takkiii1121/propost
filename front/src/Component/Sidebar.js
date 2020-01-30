@@ -3,6 +3,7 @@ import lscache from 'lscache'
 import axios from 'axios'
 import {FaRegUserCircle} from 'react-icons/fa'
 import {Link} from 'react-router-dom'
+import {SideLink, SideContainer, UserIcon} from '../StyledComponent/SideNavbar'
 
 export default class Sidebar extends Component {
     constructor() {
@@ -31,19 +32,21 @@ export default class Sidebar extends Component {
     render() {
         if (this.state.currentUser != null) {
             return(
-                <div>
-                <Link to={'/api/v1/posts'}>新着記事</Link>
-                <Link to={'/api/v1/users'}>ユーザー一覧</Link>
+                <SideContainer>
+                <SideLink to={'/api/v1/posts'}>新着記事</SideLink>
+                <SideLink to={'/api/v1/users'}>ユーザー一覧</SideLink>
+                <UserIcon>
                 <FaRegUserCircle />
-                <Link to={`/api/v1/users/${this.state.currentUser.id}`}>ようこそ、{this.state.currentUser.name}さん</Link>
-                </div>
+                </UserIcon>
+                <SideLink to={`/api/v1/users/${this.state.currentUser.id}`}>ようこそ、{this.state.currentUser.name}さん</SideLink>
+                </SideContainer>
             )
         } else {
             return(
-                <div>
-                    <Link to={'/api/v1/posts'}>新着記事</Link>
-                    <Link to={'/api/v1/users'}>ユーザー一覧</Link>
-                </div>
+                <SideContainer>
+                    <SideLink to={'/api/v1/posts'}>新着記事</SideLink>
+                    <SideLink to={'/api/v1/users'}>ユーザー一覧</SideLink>
+                </SideContainer>
             )
         }
     }
