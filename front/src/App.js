@@ -9,15 +9,25 @@ import PostNew from "./Component/PostNew";
 import PrivateRoute from "./Component/PrivateRoute"
 import { Route, Switch } from "react-router-dom";
 import styled from 'styled-components'
+import Sidebar from './Component/Sidebar'
 
 const Body = styled.div`
     width: 80%;
     float: right;
 `
 
+const Side = styled.div`
+    width: 20%;
+    float: left;
+`
+
 export default class App extends Component {
   render() {
     return (
+      <div>
+      <Side>
+        <Sidebar />
+      </Side>
       <Body>
       <Switch>
         <Route exact path="/api/v1/users" component={UserIndex} />
@@ -29,6 +39,7 @@ export default class App extends Component {
         <PrivateRoute exact path="/api/v1/new" component={PostNew} />
       </Switch>
       </Body>
+      </div>
     );
   }
 }
