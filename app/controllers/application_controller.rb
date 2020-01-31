@@ -7,7 +7,15 @@ class ApplicationController < ActionController::API
 
     def create_token
         return ((0..9).to_a + ("a".."z").to_a + ("A".."Z").to_a).sample(50).join
-      end
+    end
+
+    def count_liked_posts(user)
+        @count_posts = user.liked_posts.count
+    end
+
+    def count_liked_users(post)
+        @count_users = post.liked_users.count
+    end
 
     private
 

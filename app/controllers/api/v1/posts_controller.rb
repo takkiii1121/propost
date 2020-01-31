@@ -15,8 +15,13 @@ class Api::V1::PostsController < ApplicationController
     def show
         @post = Post.find(params[:id])
         @user = @post.user
+        @like = Like.new
         if current_user != nil
-            render json: {post: @post, user: @user, isAuthenticate: true}
+            if current_user.already_liked?(@post)
+                render json: {post: @post, user: @user, isAuthenticate: true, like: true}
+            else
+                render json: {post: @post, user: @user, isAuthenticate: true, like: false}
+            end
         else
             render json: {post: @post, user: @user, isAuthenticate: false}
         end

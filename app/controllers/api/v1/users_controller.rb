@@ -16,7 +16,8 @@ class Api::V1::UsersController < ApplicationController
         @user = User.find(params[:id])
         @posts = @user.posts.order(created_at: :desc)
         if @user == @current_user
-            render json: {user: @user, posts: @posts, mypage: true}
+            @count = counts(@user)
+            render json: {user: @user, posts: @posts, mypage: true, count: @count}
         else 
             render json: {user: @user, posts: @posts, mypage: false}
         end
