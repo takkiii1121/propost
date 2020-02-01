@@ -12,11 +12,11 @@ class User < ApplicationRecord
     has_many :likes, dependent: :destroy
     has_many :liked_posts, through: :likes, source: :post
 
-    def like(post)
+    def favorite(post)
         self.likes.find_or_create_by(post_id: post.id)
     end
 
-    def unlike(post)
+    def unfavorite(post)
         like = self.likes.find_by(post_id: post.id)
         like.destroy if like
     end

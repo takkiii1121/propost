@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
     before_action :authenticate_token, only: [:index, :show]
-    before_action :authenticate!, only: [:update]
+    before_action :authenticate!, only: [:like]
     before_action :current_user, only: [:index, :show, :me]
 
     def index
@@ -16,8 +16,7 @@ class Api::V1::UsersController < ApplicationController
         @user = User.find(params[:id])
         @posts = @user.posts.order(created_at: :desc)
         if @user == @current_user
-            @count = counts(@user)
-            render json: {user: @user, posts: @posts, mypage: true, count: @count}
+            render json: {user: @user, posts: @posts, mypage: true}
         else 
             render json: {user: @user, posts: @posts, mypage: false}
         end
@@ -38,7 +37,12 @@ class Api::V1::UsersController < ApplicationController
         render json: @current_user
     end
 
-    
+    def like
+        @user = User.find(params[:id])
+        @like_posts = @user.liked_posts
+        @count = count_liked_posts(@user)
+        render json: {user: @user, like_posts: @like_posts, count: @count}
+    end
 
 
     private
