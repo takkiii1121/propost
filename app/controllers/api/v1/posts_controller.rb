@@ -15,12 +15,11 @@ class Api::V1::PostsController < ApplicationController
     def show
         @post = Post.find(params[:id])
         @user = @post.user
-        @like = Like.new
         if current_user != nil
             if current_user.already_liked?(@post)
-                render json: {post: @post, user: @user, isAuthenticate: true, like: true}
+                render json: {post: @post, user: @user, isAuthenticate: true, liked: true}
             else
-                render json: {post: @post, user: @user, isAuthenticate: true, like: false}
+                render json: {post: @post, user: @user, isAuthenticate: true, liked: false}
             end
         else
             render json: {post: @post, user: @user, isAuthenticate: false}
@@ -40,6 +39,13 @@ class Api::V1::PostsController < ApplicationController
     def destroy
         @post.destroy
         render json: {destroy: true, post: @post, current_user: @current_user}
+    end
+
+    def liked
+        @post = Post.find(params[:id])
+        @like_users = @post.liked_users
+        @count = count_liked_users(@post)
+        render json: {post: @post, like_users: @like_users, count: @count}
     end
 
     private
