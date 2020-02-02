@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import lscache from 'lscache'
 import { PageTitle, PageText, PageColor, PostBody, PageLink } from "../StyledComponent/Page";
+import LikeUsers from './LikeUsers'
 
 export default class PostShow extends Component {
   constructor(props) {
@@ -10,8 +11,11 @@ export default class PostShow extends Component {
       post: {},
       user: {},
       isAuthenticate: false,
-      token: lscache.get('token')
+      token: lscache.get('token'),
+      id: this.props.match.params.id,
+      toggle: false
     };
+    this.handleClick = this.handleClick.bind(this)
   }
  
   componentDidMount() {
@@ -38,13 +42,22 @@ export default class PostShow extends Component {
     return { __html: html}
   }
 
+  handleClick() {
+    this.setState({
+      toggle: !this.state.toggle
+    })
+  }
+
   render() {
+    console.log(this.state.id)
     return (
       <PageColor>
         <PageTitle>{this.state.post.title}</PageTitle>
         <PageText>{this.state.post.created_at}に投稿しました</PageText>
         <PageLink to={`/api/v1/users/${this.state.user.id}`}>著者：{this.state.user.name}</PageLink>
         <PostBody dangerouslySetInnerHTML={this.markup()}></PostBody>
+        <button onClick={this.handleClick}>いいねしたユーザーを見る</button>
+        <LikeUsers toggle={this.state.toggle} id={this.state.id} />
       </PageColor>
     );
   }
