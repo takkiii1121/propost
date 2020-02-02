@@ -13,7 +13,7 @@ export default class MyPage extends Component {
         super(props);
         this.state = {
             user: {},
-            id: '',
+            id: this.props.match.params.id,
             posts: [],
             mypage: false,
             token: lscache.get('token'),
@@ -24,13 +24,11 @@ export default class MyPage extends Component {
     componentDidMount() {
         const { match: { params } } = this.props;
         const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
-        const id = params.id
         axios
             .get(`http://localhost:3001/api/v1/users/${params.id}`, headers)
             .then(response => {
                 this.setState({
                     user: response.data.user,
-                    id: id,
                     posts: response.data.posts,
                     mypage: response.data.mypage
                 });

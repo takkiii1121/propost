@@ -45,7 +45,7 @@ class Api::V1::PostsController < ApplicationController
         @post = Post.find(params[:id])
         @like_users = @post.liked_users
         @count = count_liked_users(@post)
-        render json: {post: @post, like_users: @like_users, count: @count}
+        render json: {like_users: @like_users, count: @count}
     end
 
     private
