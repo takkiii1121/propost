@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import UserIndex from "./Component/UserIndex";
-import UserShow from "./Component/UserShow";
+import MyPage from "./Component/MyPage";
 import UserSignUp from "./Component/UserSignUp";
 import UserLogin from "./Component/UserLogin";
 import PostIndex from "./Component/PostIndex";
@@ -31,7 +31,7 @@ export default class App extends Component {
       <Body>
       <Switch>
         <Route exact path="/api/v1/users" component={UserIndex} />
-        <Route exact path="/api/v1/users/:id" component={UserShow} />
+        <Route exact path="/api/v1/users/:id" component={MyPage} />
         <Route exact path="/api/v1/signup" component={UserSignUp} />
         <Route exact path="/api/v1/login" component={UserLogin} />
         <Route exact path="/api/v1/posts" component={PostIndex} />

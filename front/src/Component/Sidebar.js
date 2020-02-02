@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import lscache from 'lscache'
 import axios from 'axios'
 import {FaRegUserCircle} from 'react-icons/fa'
-import {Link} from 'react-router-dom'
 import {SideLink, SideContainer, UserIcon} from '../StyledComponent/SideNavbar'
 
 export default class Sidebar extends Component {
