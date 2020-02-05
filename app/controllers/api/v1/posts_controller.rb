@@ -17,12 +17,12 @@ class Api::V1::PostsController < ApplicationController
         @user = @post.user
         if current_user != nil
             if current_user.already_liked?(@post)
-                render json: {post: @post, user: @user, isAuthenticate: true, liked: true}
+                render json: {post: @post, user: @user, liked: true}
             else
-                render json: {post: @post, user: @user, isAuthenticate: true, liked: false}
+                render json: {post: @post, user: @user, liked: false}
             end
         else
-            render json: {post: @post, user: @user, isAuthenticate: false}
+            render json: {post: @post, user: @user}
         end
     end
 

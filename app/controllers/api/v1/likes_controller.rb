@@ -1,5 +1,6 @@
 class Api::V1::LikesController < ApplicationController
     before_action :current_user
+
     def create
         @post = Post.find(params[:id])
         current_user.favorite(@post)
@@ -19,4 +20,5 @@ class Api::V1::LikesController < ApplicationController
             render json: {like: false}
         end
     end
+
 end

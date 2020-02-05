@@ -14,10 +14,11 @@ Rails.application.routes.draw do
           resources :posts do
             member do
               get :liked
-              post :likes, to: 'likes#create'
-              delete :likes, to: 'likes#destroy'
             end
           end
+
+          post '/like', to: 'likes#create'
+          post '/unlike', to: 'likes#destroy'
       end
   end
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

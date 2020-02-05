@@ -15,12 +15,12 @@ class User < ApplicationRecord
     def favorite(post)
         self.likes.find_or_create_by(post_id: post.id)
     end
-
+    
     def unfavorite(post)
         like = self.likes.find_by(post_id: post.id)
         like.destroy if like
     end
-
+    
     def already_liked?(post)
         self.likes.exists?(post_id: post.id)
     end
