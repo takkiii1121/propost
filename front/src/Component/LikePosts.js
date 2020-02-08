@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import lscache from 'lscache'
+import { Link } from "react-router-dom";
+import { PageText, PageTitle, PageColor } from "../StyledComponent/Page";
+import {Card, CardTitle, CardBody, CardTime, CardLinkCenter, Button} from '../StyledComponent/Card.js'
 
 export default class LikePosts extends Component {
     constructor(props) {
@@ -32,11 +35,11 @@ export default class LikePosts extends Component {
 
     render() {
         return(
-            <div>
-                <p>{this.props.user.name}さんがいいねした記事</p>
-                <p>{this.state.count}件</p>
+            <PageColor>
+                <PageTitle>{this.props.user.name}さんがいいねした記事</PageTitle>
+                <PageText>{this.state.count}件</PageText>
                 <LikePostList posts={this.state.likePosts} />
-            </div>
+            </PageColor>
         )
     }
 }
@@ -54,9 +57,22 @@ class LikePostList extends Component {
 }
 
 class LikePostListItem extends Component {
+    markup() {
+        const html = this.props.post.content
+        return { __html: html}
+    }
     render() {
         return(
-            <p>{this.props.post.title}</p>
+            <Card>
+                <CardTitle>{this.props.post.title}</CardTitle>
+                <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
+                <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
+                <CardLinkCenter>
+                <Link to={`/api/v1/posts/${this.props.post.id}`}>
+                    <Button color={'#aec4e5'} hover={'#bbd1f2'}>続きを見る</Button>
+                </Link>
+                </CardLinkCenter>
+            </Card>
         )
     }
 }

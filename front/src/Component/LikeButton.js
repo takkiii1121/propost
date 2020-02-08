@@ -1,6 +1,29 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import lscache from 'lscache'
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import styled from 'styled-components'
+
+const LikeButtonStyle = styled.div`
+    color: ${props => props.color};
+    text-decoration: none;
+    margin: 50px;
+    padding:  20px 20px 15px 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    z-index: 1;
+    border: solid;
+    border-color: ${props => props.color};
+    border-radius: 50%;
+    transition-duration: 300ms;
+    &:hover {
+        background: ${props => props.color};
+        color: #fff;
+    }
+`
+
 
 export default class LikeButton extends Component {
     constructor(props) {
@@ -51,11 +74,11 @@ export default class LikeButton extends Component {
         console.log(this.state.like)
         if (this.state.like) {
             return(
-                <button onClick={this.handleClick1}>よくない</button>
+                <LikeButtonStyle color={'#eb8686'} onClick={this.handleClick1}><FavoriteIcon fontSize='large' /></LikeButtonStyle>
             )
         } else {
             return(
-                <button onClick={this.handleClick2}>いいね</button>
+                <LikeButtonStyle color={'#ccc'} onClick={this.handleClick2}><FavoriteIcon fontSize='large' /></LikeButtonStyle>
             )
         }
         

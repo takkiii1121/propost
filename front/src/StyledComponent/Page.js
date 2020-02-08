@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
+import {Tab} from 'react-tabs'
 
 export const PageTitle = styled.div`
     margin: 20px;
@@ -30,6 +31,7 @@ export const PostBody = styled.div`
     font-size: 20px;
     color: #666666;
     border-top: solid;
+    border-bottom: solid;
     border-color: #ccc;
 `
 
@@ -42,4 +44,8 @@ export const PageLink = styled(Link)`
         border-bottom: solid;
         border-color: #aec4e5;
     }
+`
+
+export const TabColor = styled.div`
+    color: #2f394d;
 `

@@ -50,13 +50,16 @@ export default class PostShow extends Component {
   }
 
   render() {
-    if (this.state.liked == '') {
+    console.log(this.state.liked)
+    const liked = this.state.liked
+    if (liked !== '') {
       return (
         <PageColor>
           <PageTitle>{this.state.post.title}</PageTitle>
           <PageText>{this.state.post.created_at}に投稿しました</PageText>
           <PageLink to={`/api/v1/users/${this.state.user.id}`}>著者：{this.state.user.name}</PageLink>
           <PostBody dangerouslySetInnerHTML={this.markup()}></PostBody>
+          <LikeButton id={this.state.id} liked={liked}/>
           <button onClick={this.handleClick}>いいねしたユーザーを見る</button>
           <LikeUsers toggle={this.state.toggle} id={this.state.id} />
         </PageColor>
@@ -68,7 +71,6 @@ export default class PostShow extends Component {
           <PageText>{this.state.post.created_at}に投稿しました</PageText>
           <PageLink to={`/api/v1/users/${this.state.user.id}`}>著者：{this.state.user.name}</PageLink>
           <PostBody dangerouslySetInnerHTML={this.markup()}></PostBody>
-          <LikeButton id={this.state.id} liked={this.state.liked}/>
           <button onClick={this.handleClick}>いいねしたユーザーを見る</button>
           <LikeUsers toggle={this.state.toggle} id={this.state.id} />
         </PageColor>
