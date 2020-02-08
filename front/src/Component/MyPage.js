@@ -7,6 +7,7 @@ import axios from 'axios'
 import lscache from 'lscache'
 import UserShow from './UserShow';
 import LikePosts from './LikePosts'
+import { PageColor, PageTitle, PageText, TabColor } from '../StyledComponent/Page';
 
 export default class MyPage extends Component {
     constructor(props) {
@@ -41,18 +42,20 @@ export default class MyPage extends Component {
     
     render() {
         return(
-            <div>
-                <p>{this.state.user.name}さんのページ</p>
-                <p>{this.state.user.created_at}に登録しました</p>
+            <PageColor>
+                <PageTitle>{this.state.user.name}さんのページ</PageTitle>
+                <PageText>{this.state.user.created_at}に登録しました</PageText>
                 <Tabs
                 onSelect={tabIndex => this.setState({tabIndex})}
                 selectedIndex={this.state.tabIndex}
                 >
-
+                    <TabColor>
                     <TabList>
                         <Tab><SpeakerNotes /></Tab>
                         <Tab><FavoriteIcon /></Tab>
                     </TabList>
+                    </TabColor>
+                    
 
                     <TabPanel>
                         <UserShow id={this.state.id} user={this.state.user} posts={this.state.posts} mypage={this.state.mypage} state={this.props.location.state} />
@@ -62,7 +65,7 @@ export default class MyPage extends Component {
                     </TabPanel>
 
                 </Tabs>
-            </div>
+            </PageColor>
         )
     }
 }
