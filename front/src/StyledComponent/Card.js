@@ -52,17 +52,39 @@ export const CardLinkCenter = styled.div`
 `
 
 export const Button = styled.button`
-    color: #fff;
-    text-decoration: none;
-    background: ${props => props.color};
-    border-color: ${props => props.color};
-    border-radius: 20px;
-    text-align: center;
-    margin: 5px 10px;
-    font-size: 16px;
     width: 95%;
-    padding: 5px 5%;
-    &:hover {
+    height: 15%;
+    font-size: 15px;
+    position: relative;
+    padding: 5px;
+    margin: 5px;
+    color: #fff;
+    border: 1px solid ${props => props.color};
+    background: ${props => props.color};
+    border-radius: 20px;
+    transition: 300ms;
+    z-index: 1;
+    overflow: hidden;
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        width: 0;
         background: ${props => props.hover};
+        transition: 300ms;
+    }   
+    &:hover {
+        border: 2px solid ${props => props.hover};
+        font-weight: bold;
+        padding: 4px;
+        &:after {
+            height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
     }
 `

@@ -45,7 +45,7 @@ class PostDestroy extends Component {
         return(
             <div>
                 <NotificationSystem ref={this.notificationSystem} />
-                <Button color={'#eb8686'} hover={'#ee9797'} onClick={this.handleClick}>削除する</Button>
+                <Button color={'#eb8686'} hover={'#eb5e5e'} onClick={this.handleClick}>削除する</Button>
             </div>
         )
     }

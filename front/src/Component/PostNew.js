@@ -70,7 +70,7 @@ class PostNew extends Component {
                                 forceSync: true
                             }} />
                     </MarkdownInput>
-                    <CreateButton>Send</CreateButton>
+                    <CreateButton>送信</CreateButton>
                 </form>
             </PageColor>
             
