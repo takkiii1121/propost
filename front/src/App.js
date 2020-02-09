@@ -14,6 +14,8 @@ import Sidebar from './Component/Sidebar'
 const Body = styled.div`
     width: 80%;
     float: right;
+    position: absolute;
+    left: 280px;
 `
 
 const Side = styled.div`
