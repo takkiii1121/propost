@@ -38,13 +38,34 @@ export const Button = styled.button`
     height: 40px;
     margin: 50px 0 30px 10%;
     border-radius: 20px;
+    position: relative;
     background: #eb8686;
     color: #fff;
     font-size: 20px;
     border-color: #eb8686;
     outline: 0;
+    transition: 300ms;
+    z-index: 1;
+    overflow: hidden;
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        background: #eb5e5e;
+        transition: 300ms;
+    }
     &:hover {
-        background: #ee9797;
+        font-weight: bold;
+        &:after {
+            height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
     }
 `
 export const CreateButton = styled.button`
@@ -58,8 +79,28 @@ export const CreateButton = styled.button`
     border-color: #eb8686;
     outline: 0;
     font-size: 20px;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        height: 0;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        background: #eb5e5e;
+        transition: 300ms;
+    }
     &:hover {
-        background: #f09090;
+        font-weight: bold;
+        &:after {
+            height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
     }
 `
 

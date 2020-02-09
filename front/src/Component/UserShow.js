@@ -61,7 +61,7 @@ class PostListItem extends Component {
             <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
             <CardLinkCenter>
               <Link to={`/api/v1/posts/${this.props.post.id}`}>
-                <Button color={'#aec4e5'} hover={'#bbd1f2'}>続きを見る</Button>
+                <Button color={'#8aaee6'} hover={'#5c91e6'}>続きを見る</Button>
               </Link>
               <PostDestroy id={this.props.post.id} />
             </CardLinkCenter>
@@ -75,7 +75,7 @@ class PostListItem extends Component {
             <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
             <CardLinkCenter>
               <Link to={`/api/v1/posts/${this.props.post.id}`}>
-                <Button color={'#aec4e5'} hover={'#bbd1f2'}>続きを見る</Button>
+                <Button color={'#8aaee6'} hover={'#5c91e6'}>続きを見る</Button>
               </Link>
             </CardLinkCenter>
         </Card>

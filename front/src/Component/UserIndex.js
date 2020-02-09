@@ -66,7 +66,7 @@ class UserListItem extends Component {
         <CardTime>{this.props.user.created_at}に登録しました</CardTime>
         <CardLinkCenter>
           <Link to={`/api/v1/users/${this.props.user.id}`}>
-            <Button color={'#aec4e5'} hover={'#bbd1f2'}>詳細を見る</Button>
+            <Button color={'#8aaee6'} hover={'#5c91e6'}>詳細を見る</Button>
           </Link>
         </CardLinkCenter>
       </Card>
