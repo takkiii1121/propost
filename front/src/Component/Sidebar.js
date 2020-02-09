@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import lscache from 'lscache'
 import axios from 'axios'
-import {FaRegUserCircle} from 'react-icons/fa'
-import {SideLink, SideContainer, UserIcon} from '../StyledComponent/SideNavbar'
+import PersonIcon from '@material-ui/icons/Person';
+import {SideLink, SideContainer, UserIcon, Circle} from '../StyledComponent/SideNavbar'
 
 export default class Sidebar extends Component {
     constructor() {
@@ -32,12 +32,14 @@ export default class Sidebar extends Component {
         if (this.state.currentUser != null) {
             return(
                 <SideContainer>
-                <SideLink to={'/api/v1/posts'}>新着記事</SideLink>
-                <SideLink to={'/api/v1/users'}>ユーザー一覧</SideLink>
-                <UserIcon>
-                <FaRegUserCircle />
-                </UserIcon>
-                <SideLink to={`/api/v1/users/${this.state.currentUser.id}`}>ようこそ、{this.state.currentUser.name}さん</SideLink>
+                    <SideLink to={'/api/v1/posts'}>新着記事</SideLink>
+                    <SideLink to={'/api/v1/users'}>ユーザー一覧</SideLink>
+                    <Circle>
+                        <UserIcon>
+                            <PersonIcon fontSize={'large'} />
+                        </UserIcon>
+                    </Circle>
+                    <SideLink to={`/api/v1/users/${this.state.currentUser.id}`}>ようこそ、{this.state.currentUser.name}さん</SideLink>
                 </SideContainer>
             )
         } else {
