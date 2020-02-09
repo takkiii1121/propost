@@ -22,7 +22,7 @@ class Api::V1::PostsController < ApplicationController
                 render json: {post: @post, user: @user, liked: false}
             end
         else
-            render json: {post: @post, user: @user, liked: false}
+            render json: {post: @post, user: @user, liked: ''}
         end
     end
 

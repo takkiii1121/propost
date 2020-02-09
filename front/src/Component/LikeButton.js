@@ -7,18 +7,19 @@ import styled from 'styled-components'
 const LikeButtonStyle = styled.div`
     color: ${props => props.color};
     text-decoration: none;
-    margin: 50px;
+    margin: 1%;
     padding:  20px 20px 15px 20px;
     text-align: center;
     position: fixed;
-    bottom: 10px;
-    right: 20px;
+    top: 55%;
+    right: 2%;
     z-index: 1;
     border: solid;
     border-color: ${props => props.color};
     border-radius: 50%;
     transition-duration: 300ms;
     &:hover {
+        transform: rotate3d(0, -1, 0, 180deg) scale(1);
         background: ${props => props.color};
         color: #fff;
     }
