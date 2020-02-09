@@ -53,6 +53,7 @@ export const CardLinkCenter = styled.div`
 
 export const Button = styled.button`
     color: #fff;
+    text-decoration: none;
     background: ${props => props.color};
     border-color: ${props => props.color};
     border-radius: 20px;

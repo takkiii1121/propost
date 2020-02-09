@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import {Link} from 'react-router-dom'
-import {Tab} from 'react-tabs'
 
 export const PageTitle = styled.div`
     margin: 20px;
@@ -16,6 +15,7 @@ export const PageText = styled.div`
     padding: 10px;
     font-size: 15px;
     color: #666666;
+    opacity: 
 `
 
 export const PageColor = styled.div`
