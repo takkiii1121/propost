@@ -21,6 +21,7 @@ const Body = styled.div`
 const Side = styled.div`
     width: 20%;
     float: left;
+    position: fixed;
 `
 
 export default class App extends Component {

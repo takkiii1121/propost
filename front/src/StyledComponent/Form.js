@@ -15,7 +15,7 @@ export const Input = styled.input`
 `
 
 export const Field = styled.div`
-    margin: 10px 0 30px 10%;
+    margin: 55px 0 30px 10%;
     position: static;
     width: 100%+
 `

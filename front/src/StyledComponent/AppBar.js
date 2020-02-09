@@ -3,7 +3,9 @@ import {Link} from 'react-router-dom'
 
 export const commonStyle = {
     appBarColorDefault: {
-    backgroundColor: '#6088c6'
+    backgroundColor: '#6088c6',
+    position: 'fixed',
+    top: '0'
     }
 }
 
