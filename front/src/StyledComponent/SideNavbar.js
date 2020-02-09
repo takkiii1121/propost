@@ -18,9 +18,11 @@ export const SideLink = styled(Link)`
 `
 
 export const SideContainer = styled.div`
-    margin: 40px 0;
-    padding: 10px;
+    margin: 50px 0 0 0;
+    padding: 50px 20px 600px 20px;
+    width: 232px;
     position: fixed;
+    background: #2f394d;
 `
 
 export const UserIcon = styled.div`

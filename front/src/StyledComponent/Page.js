@@ -22,6 +22,7 @@ export const PageColor = styled.div`
     background: #fff;
     padding: 10px;
     min-height: 1915px;
+    margin: 65px 0 0 0;
 `
 
 export const PostBody = styled.div`
@@ -40,9 +41,12 @@ export const PageLink = styled(Link)`
     color: #666666;
     text-decoration: none;
     font-size: 20px;
+    display: inline-block;
+    transform: scale(1);
+    transition: 300ms;
     &:hover {
-        border-bottom: solid;
-        border-color: #aec4e5;
+        transform: scale(1.1);
+        cursor: pointer;
     }
 `
 

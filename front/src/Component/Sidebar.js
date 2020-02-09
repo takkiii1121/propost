@@ -39,7 +39,7 @@ export default class Sidebar extends Component {
                             <PersonIcon fontSize={'large'} />
                         </UserIcon>
                     </Circle>
-                    <SideLink to={`/api/v1/users/${this.state.currentUser.id}`}>ようこそ、{this.state.currentUser.name}さん</SideLink>
+                    <SideLink to={`/api/v1/users/${this.state.currentUser.id}`}>ようこそ<br></br>{this.state.currentUser.name}さん</SideLink>
                 </SideContainer>
             )
         } else {
