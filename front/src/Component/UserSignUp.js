@@ -10,8 +10,7 @@ class UserSignUp extends Component {
         super()
         this.state = {
             token: "",
-            isAuthenticate: null,
-            active: false
+            isAuthenticate: null
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.notificationSystem = React.createRef()
@@ -46,32 +45,26 @@ class UserSignUp extends Component {
             })
     }
 
-    moveForm() {
-        this.setState({
-            active: true
-        })
-    }
-
     render() {
         return(
             <FormPage margin={'30px'}>
                 <NotificationSystem ref={this.notificationSystem} />
                 <form onSubmit={this.handleSubmit}>
                     <Field className="field">
-                        <Label htmlFor="user_name" active={this.state.active}>Name</Label>
-                        <Input type="text" name="name" onClick={() => this.moveForm()} active={this.state.active} />
+                        <Label htmlFor="user_name">Name</Label>
+                        <Input type="text" name="name" />
                     </Field>
                     <Field className="field">
-                        <Label htmlFor="user_email" active={this.state.active}>Email</Label>
-                        <Input type="email" name="email" onClick={() => this.moveForm()} active={this.state.active} />
+                        <Label htmlFor="user_email">Email</Label>
+                        <Input type="email" name="email" />
                     </Field>
                     <Field className="field">
-                        <Label htmlFor="user_password" active={this.state.active}>Password</Label>
-                        <Input type="password" name="password" onClick={() => this.moveForm()} active={this.state.active} />
+                        <Label htmlFor="user_password">Password</Label>
+                        <Input type="password" name="password" />
                     </Field>
                     <Field className="field">
-                        <Label htmlFor="user_password_confirmation" active={this.state.active}>Password Confirmation</Label>
-                        <Input type="password" name="password_confirmation" onClick={() => this.moveForm()} active={this.state.active} />
+                        <Label htmlFor="user_password_confirmation" >Password Confirmation</Label>
+                        <Input type="password" name="password_confirmation" />
                     </Field>
                     <Button>Send</Button>
                 </form>
