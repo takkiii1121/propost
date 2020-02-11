@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const Input = styled.input`
     position: relative;
-    bottom: ${props => props.active ? '10px' : '0px'};
-    height: ${props => props.active ? '70px' : '50px'};
+    bottom: 0px;
+    height: 50px;
     transition: all 300ms 0s ease;
     border-width: 4px 0 4px 0;
     border-color: #fff;
@@ -12,22 +12,27 @@ export const Input = styled.input`
     font-size: 30px;
     outline: 0;
     width: 58%;
+    &:hover {
+        bottom: 10px;
+        height: 70px;
+    }
+
+    
 `
 
 export const Field = styled.div`
     margin: 55px 0 30px 10%;
     position: static;
-    width: 100%+
+    width: 100%;
 `
 
 export const Label = styled.div`
     color: #fff;
     font-size: 20px;
     position: relative;
-    bottom: ${props => props.active ? '10px' : '-45px'};
+    bottom: 10px;
     transition: all 300ms 0s ease;
 `
-
 export const FormPage = styled.div`
     padding: 10px;
     margin: ${props => props.margin};

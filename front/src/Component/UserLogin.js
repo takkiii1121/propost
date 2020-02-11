@@ -10,8 +10,7 @@ class UserLogin extends Component {
         super()
         this.state = {
             token: "",
-            isAuthenticate: null,
-            active: false
+            isAuthenticate: null
         }
         this.handleSubmit = this.handleSubmit.bind(this)
         this.notificationSystem = React.createRef()
@@ -47,24 +46,18 @@ class UserLogin extends Component {
             })
     }
 
-    moveForm() {
-        this.setState({
-            active: true
-        })
-    }
-
     render() {
         return(
             <FormPage margin={'100px'}>
                 <NotificationSystem ref={this.notificationSystem} />
                 <form onSubmit={this.handleSubmit}>
                     <Field className="field" >
-                        <Label htmlFor="user_email" className="lavel" active={this.state.active}>Email</Label>
-                        <Input type="email" name="email" onClick={() => this.moveForm()} active={this.state.active}/>
+                        <Label htmlFor="user_email" className="label">Email</Label>
+                        <Input type="email" name="email"/>
                     </Field>
                     <Field className="field">
-                        <Label htmlFor="user_password" active={this.state.active}>Password</Label>
-                        <Input type="password" name="password" onClick={() => this.moveForm()} active={this.state.active}/>
+                        <Label htmlFor="user_password" >Password</Label>
+                        <Input type="password" name="password" />
                     </Field>
                     <Button>Send</Button>
                 </form>
