@@ -29,7 +29,13 @@ export default class Sidebar extends Component {
     }
 
     render() {
-        if (this.state.currentUser != null) {
+        const NowPath = window.location.pathname
+        console.log(NowPath)
+        if ((NowPath == '/api/v1/login') || (NowPath == '/api/v1/signup')) {
+            return(
+                <SideContainer />
+            )
+        } else if (this.state.currentUser != null) {
             return(
                 <SideContainer>
                     <SideLink to={'/api/v1/posts'}>新着記事</SideLink>
