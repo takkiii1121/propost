@@ -60,10 +60,11 @@ class UserList extends Component {
 
 class UserListItem extends Component {
   render() {
+    // const CreatedAt = {this.props.user.created_at}.replace('-', '/').split('T')[0].replace('-', '/')
     return (
       <Card>
         <CardTitle>{this.props.user.name}</CardTitle>
-        <CardTime>{this.props.user.created_at}に登録しました</CardTime>
+        <CardTime>{this.props.user.created_at.replace('-', '/').split('T')[0].replace('-', '/')}に登録しました</CardTime>
         <CardLinkCenter>
           <Link to={`/api/v1/users/${this.props.user.id}`}>
             <Button color={'#8aaee6'} hover={'#5c91e6'}>詳細を見る</Button>

@@ -32,7 +32,8 @@ export default class PostShow extends Component {
       liked: '',
       token: lscache.get('token'),
       id: this.props.match.params.id,
-      toggle: false
+      toggle: false,
+      createdAt: ''
     };
     this.handleClick = this.handleClick.bind(this)
   }
@@ -44,6 +45,11 @@ export default class PostShow extends Component {
     axios
       .get(`http://localhost:3001/api/v1/posts/${params.id}`, headers)
       .then(response => {
+        if (response.data.post.created_at != undefined) {
+          this.setState({
+              createdAt: response.data.post.created_at.replace('-', '/').split('T')[0].replace('-', '/')
+          })
+        }
         this.setState({
           post: response.data.post,
           user: response.data.user,
@@ -74,7 +80,7 @@ export default class PostShow extends Component {
       return (
         <PageColor>
           <PageTitle>{this.state.post.title}</PageTitle>
-          <PageText>{this.state.post.created_at}に投稿しました</PageText>
+          <PageText>{this.state.createdAt}に投稿しました</PageText>
           <PageLink to={`/api/v1/users/${this.state.user.id}`}>著者：{this.state.user.name}</PageLink>
           <PostBody dangerouslySetInnerHTML={this.markup()}></PostBody>
           <LikeButton id={this.state.id} liked={liked}/>
@@ -86,7 +92,7 @@ export default class PostShow extends Component {
       return (
         <PageColor>
           <PageTitle>{this.state.post.title}</PageTitle>
-          <PageText>{this.state.post.created_at}に投稿しました</PageText>
+          <PageText>{this.state.createdAt}に投稿しました</PageText>
           <PageLink to={`/api/v1/users/${this.state.user.id}`}>著者：{this.state.user.name}</PageLink>
           <PostBody dangerouslySetInnerHTML={this.markup()}></PostBody>
           <LikeUsers id={this.state.id} authenticate={false} />

@@ -18,7 +18,8 @@ export default class MyPage extends Component {
             posts: [],
             mypage: false,
             token: lscache.get('token'),
-            tabIndex: 0
+            tabIndex: 0,
+            createdAt: ''
         };
     }
     
@@ -28,6 +29,11 @@ export default class MyPage extends Component {
         axios
             .get(`http://localhost:3001/api/v1/users/${params.id}`, headers)
             .then(response => {
+                if (response.data.user.created_at != undefined) {
+                    this.setState({
+                        createdAt: response.data.user.created_at.replace('-', '/').split('T')[0].replace('-', '/')
+                    })
+                }
                 this.setState({
                     user: response.data.user,
                     posts: response.data.posts,
@@ -41,10 +47,11 @@ export default class MyPage extends Component {
     }
     
     render() {
+        console.log(this.state.createdAt)
         return(
             <PageColor>
                 <PageTitle>{this.state.user.name}さんのページ</PageTitle>
-                <PageText>{this.state.user.created_at}に登録しました</PageText>
+                <PageText>{this.state.createdAt}に登録しました</PageText>
                 <Tabs
                 onSelect={tabIndex => this.setState({tabIndex})}
                 selectedIndex={this.state.tabIndex}
