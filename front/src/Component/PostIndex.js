@@ -83,7 +83,7 @@ class PostListItem extends Component {
         <Card>
             <CardTitle>{this.props.post.title}</CardTitle>
             <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
-            <CardTime>{this.props.post.created_at}に投稿しました</CardTime>
+            <CardTime>{this.props.post.created_at.replace('-', '/').split('T')[0].replace('-', '/')}に投稿しました</CardTime>
             <CardLinkCenter>
               <Link to={`/api/v1/posts/${this.props.post.id}`}>
                 <Button color={'#8aaee6'} hover={'#5c91e6'}>続きを見る</Button>
