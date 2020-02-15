@@ -117,6 +117,10 @@ export const TitleInput = styled.input`
     padding: 10px;
     border-color: #ccc;
     color: #666666;
+    transition: 300ms;
+    &:hover {
+        border-color: #666666;
+    }
 `
 
 export const MarkdownInput = styled.div`

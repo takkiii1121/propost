@@ -11,7 +11,7 @@ const Accordion = styled.button`
   border: none;
   margin: 20px;
   border-bottom: solid;
-  width: ${props => props.toggle ? '82%' : '200px'};
+  width: ${props => props.toggle ? '82%' : '210px'};
   font-size: 15px;
   text-align: left;
   transition: all 200ms;
@@ -20,6 +20,7 @@ const Accordion = styled.button`
   }
   &:hover {
     cursor: pointer;
+    font-size: 16px;
   }
 `
 

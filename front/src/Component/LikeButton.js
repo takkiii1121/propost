@@ -19,7 +19,6 @@ const LikeButtonStyle = styled.div`
     border-radius: 50%;
     transition-duration: 300ms;
     &:hover {
-        transform: rotate3d(0, -1, 0, 180deg) scale(1);
         background: ${props => props.color};
         color: #fff;
     }
