@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PostDestroy from "./PostDestroy";
 import NotificationSystem from 'react-notification-system'
 import { Card, CardTitle, CardBody, CardTime, CardLinkCenter, Button } from "../StyledComponent/Card";
-import { PageTitle, PageColor} from "../StyledComponent/Page";
+import { PageTitle, PageColor, PageText} from "../StyledComponent/Page";
 
 export default class UserShow extends Component {
   constructor(props) {
@@ -28,6 +28,7 @@ export default class UserShow extends Component {
       <PageColor>
         <NotificationSystem ref={this.notificationSystem} />
         <PageTitle>{this.props.user.name}さんの投稿</PageTitle>
+        <PageText>{this.props.posts.length}件</PageText>
         <PostList posts={this.props.posts} mypage={this.props.mypage} id={this.props.user.id} />
       </PageColor>
     );

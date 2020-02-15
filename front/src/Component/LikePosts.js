@@ -11,7 +11,7 @@ export default class LikePosts extends Component {
         this.state = {
             user: {},
             likePosts: [],
-            count: '',
+            count: 0,
             token: lscache.get('token')
         }
     }
