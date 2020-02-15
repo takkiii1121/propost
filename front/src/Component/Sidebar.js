@@ -16,7 +16,7 @@ export default class Sidebar extends Component {
     componentDidMount() {
         const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
         axios
-        .get(`http://localhost:3001/api/v1/me`, headers)
+        .get(`http://localhost:3001/api/me`, headers)
         .then(response => {
             this.setState({
             currentUser: response.data
@@ -31,28 +31,28 @@ export default class Sidebar extends Component {
     render() {
         const NowPath = window.location.pathname
         console.log(NowPath)
-        if ((NowPath == '/api/v1/login') || (NowPath == '/api/v1/signup')) {
+        if ((NowPath == '/login') || (NowPath == '/signup')) {
             return(
                 <SideContainer />
             )
         } else if (this.state.currentUser != null) {
             return(
                 <SideContainer>
-                    <SideLink to={'/api/v1/posts'}>新着記事</SideLink>
-                    <SideLink to={'/api/v1/users'}>ユーザー一覧</SideLink>
+                    <SideLink to={'/'}>新着記事</SideLink>
+                    <SideLink to={'/users'}>ユーザー一覧</SideLink>
                     <Circle>
                         <UserIcon>
                             <PersonIcon fontSize={'large'} />
                         </UserIcon>
                     </Circle>
-                    <SideLink to={`/api/v1/users/${this.state.currentUser.id}`}>ようこそ<br></br>{this.state.currentUser.name}さん</SideLink>
+                    <SideLink to={`/users/${this.state.currentUser.id}`}>ようこそ<br></br>{this.state.currentUser.name}さん</SideLink>
                 </SideContainer>
             )
         } else {
             return(
                 <SideContainer>
-                    <SideLink to={'/api/v1/posts'}>新着記事</SideLink>
-                    <SideLink to={'/api/v1/users'}>ユーザー一覧</SideLink>
+                    <SideLink to={'/'}>新着記事</SideLink>
+                    <SideLink to={'/users'}>ユーザー一覧</SideLink>
                 </SideContainer>
             )
         }

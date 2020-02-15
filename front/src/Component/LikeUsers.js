@@ -35,7 +35,7 @@ export default class LikeUsers extends Component {
     componentDidMount() {
         const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
         axios
-        .get(`http://localhost:3001/api/v1/posts/${this.props.id}/liked`, headers)
+        .get(`http://localhost:3001/api/posts/${this.props.id}/liked`, headers)
         .then(response => {
             console.log(response.data);
             this.setState({
@@ -83,7 +83,7 @@ class LikeUserList extends Component {
 class LikeUserListItem extends Component {
     render() {
         return(
-            <PageLink to={`/api/v1/users/${this.props.user.id}`}>{this.props.user.name}</PageLink>
+            <PageLink to={`/users/${this.props.user.id}`}>{this.props.user.name}</PageLink>
         )
     }
 }

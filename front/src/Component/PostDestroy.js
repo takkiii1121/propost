@@ -23,11 +23,11 @@ class PostDestroy extends Component {
         const notification = this.notificationSystem.current
 
         axios
-            .delete(`http://localhost:3001/api/v1/posts/${this.props.id}`, headers, data)
+            .delete(`http://localhost:3001/api/posts/${this.props.id}`, headers, data)
             .then((response) => {
                 console.log(response.data)
                 if (response.data.destroy) {
-                    this.props.history.push({pathname: `/api/v1/users/${response.data.current_user.id}`, state: {message: "記事を削除しました", level: "success"}})
+                    this.props.history.push({pathname: `/users/${response.data.current_user.id}`, state: {message: "記事を削除しました", level: "success"}})
                     window.location.reload()
                 } else {
                     notification.addNotification({

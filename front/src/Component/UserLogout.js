@@ -15,12 +15,12 @@ class Logout extends Component {
         const data = {id: this.props.id}
 
         axios
-            .post('http://localhost:3001/api/v1/logout', data)
+            .post('http://localhost:3001/api/logout', data)
             .then((response) => {
                 console.log(response.data)
                 if (response.data.logout) {
                     lscache.remove('token')
-                    this.props.history.push({pathname: '/api/v1/posts', state: {message: "ログアウトしました", level: "success"}})
+                    this.props.history.push({pathname: '/', state: {message: "ログアウトしました", level: "success"}})
                     window.location.reload()
                 } else {
                     console.log('not logged out yet')

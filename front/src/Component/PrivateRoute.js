@@ -18,7 +18,7 @@ export default class PrivateRoute extends Component {
                 if (this.state.token !== undefined) {
                     return <Component {...this.props} />
                 } else {
-                    return <Redirect to={{pathname: 'api/v1/login'}} />
+                    return <Redirect to={{pathname: '/login'}} />
                 }
                 
             }}

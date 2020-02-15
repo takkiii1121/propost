@@ -61,7 +61,7 @@ class PostListItem extends Component {
             <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
             <CardTime>{this.props.post.created_at.replace('-', '/').split('T')[0].replace('-', '/')}に投稿しました</CardTime>
             <CardLinkCenter>
-              <Link to={`/api/v1/posts/${this.props.post.id}`}>
+              <Link to={`/posts/${this.props.post.id}`}>
                 <Button color={'#8aaee6'} hover={'#5c91e6'}>続きを見る</Button>
               </Link>
               <PostDestroy id={this.props.post.id} />
@@ -75,7 +75,7 @@ class PostListItem extends Component {
             <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
             <CardTime>{this.props.post.created_at.replace('-', '/').split('T')[0].replace('-', '/')}に投稿しました</CardTime>
             <CardLinkCenter>
-              <Link to={`/api/v1/posts/${this.props.post.id}`}>
+              <Link to={`/posts/${this.props.post.id}`}>
                 <Button color={'#8aaee6'} hover={'#5c91e6'}>続きを見る</Button>
               </Link>
             </CardLinkCenter>

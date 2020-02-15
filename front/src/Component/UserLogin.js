@@ -22,7 +22,7 @@ class UserLogin extends Component {
         const notification = this.notificationSystem.current
 
         axios
-            .post('http://localhost:3001/api/v1/login', data)
+            .post('http://localhost:3001/api/login', data)
             .then((response) => {
                 console.log(response.data.token)
                 this.setState({
@@ -31,7 +31,7 @@ class UserLogin extends Component {
                 })
                 if (this.state.isAuthenticate) {
                     lscache.set('token', this.state.token, 1440)
-                    this.props.history.push({pathname: '/api/v1/posts', state: {message: "ログインしました", level: "success"}})
+                    this.props.history.push({pathname: '/', state: {message: "ログインしました", level: "success"}})
                     window.location.reload()
                 } else {
                     console.log('not logined yet')

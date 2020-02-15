@@ -19,7 +19,7 @@ export default class LikePosts extends Component {
     componentDidMount() {
         const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
         axios
-        .get(`http://localhost:3001/api/v1/users/${this.props.id}/like`, headers)
+        .get(`http://localhost:3001/api/users/${this.props.id}/like`, headers)
         .then(response => {
             console.log(response.data);
             this.setState({
@@ -68,7 +68,7 @@ class LikePostListItem extends Component {
                 <CardBody dangerouslySetInnerHTML={this.markup()}></CardBody>
                 <CardTime>{this.props.post.created_at.replace('-', '/').split('T')[0].replace('-', '/')}に投稿しました</CardTime>
                 <CardLinkCenter>
-                <Link to={`/api/v1/posts/${this.props.post.id}`}>
+                <Link to={`/posts/${this.props.post.id}`}>
                     <Button color={'#8aaee6'} hover={'#5c91e6'}>続きを見る</Button>
                 </Link>
                 </CardLinkCenter>

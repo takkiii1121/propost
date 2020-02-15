@@ -38,11 +38,11 @@ class PostNew extends Component {
         // console.log(this.state.content)
 
         axios
-            .post('http://localhost:3001/api/v1/posts', data, headers)
+            .post('http://localhost:3001/api/posts', data, headers)
             .then((response) => {
                 console.log(response.data.posted)
                 if (response.data.posted) {
-                    this.props.history.push({pathname: '/api/v1/posts', state: {message: "投稿しました", level: "success"}})
+                    this.props.history.push({pathname: '/', state: {message: "投稿しました", level: "success"}})
                 } else {
                     notification.addNotification({
                         message: "投稿に失敗しました",

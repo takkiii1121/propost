@@ -33,13 +33,13 @@ export default class App extends Component {
       </Side>
       <Body>
       <Switch>
-        <Route exact path="/api/v1/users" component={UserIndex} />
-        <Route exact path="/api/v1/users/:id" component={MyPage} />
-        <Route exact path="/api/v1/signup" component={UserSignUp} />
-        <Route exact path="/api/v1/login" component={UserLogin} />
-        <Route exact path="/api/v1/posts" component={PostIndex} />
-        <Route exact path="/api/v1/posts/:id" component={PostShow} />
-        <PrivateRoute exact path="/api/v1/new" component={PostNew} />
+        <Route exact path="/users" component={UserIndex} />
+        <Route exact path="/users/:id" component={MyPage} />
+        <Route exact path="/signup" component={UserSignUp} />
+        <Route exact path="/login" component={UserLogin} />
+        <Route exact path="/" component={PostIndex} />
+        <Route exact path="/posts/:id" component={PostShow} />
+        <PrivateRoute exact path="/new" component={PostNew} />
       </Switch>
       </Body>
       </div>
