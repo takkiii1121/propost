@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Api::UsersController < ApplicationController
     before_action :authenticate_token, only: [:index, :show]
     before_action :authenticate!, only: [:like]
     before_action :current_user, only: [:index, :show, :me]
