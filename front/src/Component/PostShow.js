@@ -44,7 +44,7 @@ export default class PostShow extends Component {
     const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
 
     axios
-      .get(`http://localhost:3001/api/v1/posts/${params.id}`, headers)
+      .get(`http://localhost:3001/api/posts/${params.id}`, headers)
       .then(response => {
         if (response.data.post.created_at != undefined) {
           this.setState({
@@ -82,7 +82,7 @@ export default class PostShow extends Component {
         <PageColor>
           <PageTitle>{this.state.post.title}</PageTitle>
           <PageText>{this.state.createdAt}に投稿しました</PageText>
-          <PageLink to={`/api/v1/users/${this.state.user.id}`}>著者：{this.state.user.name}</PageLink>
+          <PageLink to={`/users/${this.state.user.id}`}>著者：{this.state.user.name}</PageLink>
           <PostBody dangerouslySetInnerHTML={this.markup()}></PostBody>
           <LikeButton id={this.state.id} liked={liked}/>
           <Accordion toggle={this.state.toggle} onClick={this.handleClick}>いいねしたユーザーを見る</Accordion>
@@ -94,7 +94,7 @@ export default class PostShow extends Component {
         <PageColor>
           <PageTitle>{this.state.post.title}</PageTitle>
           <PageText>{this.state.createdAt}に投稿しました</PageText>
-          <PageLink to={`/api/v1/users/${this.state.user.id}`}>著者：{this.state.user.name}</PageLink>
+          <PageLink to={`/users/${this.state.user.id}`}>著者：{this.state.user.name}</PageLink>
           <PostBody dangerouslySetInnerHTML={this.markup()}></PostBody>
           <LikeUsers id={this.state.id} authenticate={false} />
         </PageColor>

@@ -21,7 +21,7 @@ class UserSignUp extends Component {
         const notification = this.notificationSystem.current
 
         axios
-            .post('http://localhost:3001/api/v1/users', data)
+            .post('http://localhost:3001/api/users', data)
             .then((response) => {
                 console.log(response.data)
                 this.setState({
@@ -30,7 +30,7 @@ class UserSignUp extends Component {
                 })
                 if (this.state.isAuthenticate) {
                     lscache.set('token', this.state.token, 1440)
-                    this.props.history.push({pathname: '/api/v1/posts', state: {message: "登録しました", level: "success"}})
+                    this.props.history.push({pathname: '/', state: {message: "登録しました", level: "success"}})
                     window.location.reload()
                 } else {
                     console.log('not logined yet')

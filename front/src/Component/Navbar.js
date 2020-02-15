@@ -22,7 +22,7 @@ class Navbar extends Component {
     componentDidMount() {
         const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
         axios
-        .get(`http://localhost:3001/api/v1/me`, headers)
+        .get(`http://localhost:3001/api/me`, headers)
         .then(response => {
             this.setState({
             currentUser: response.data
@@ -41,8 +41,8 @@ class Navbar extends Component {
                     <Toolbar>
                         <Typography variant="h6" className={"title"}>Programmer Post</Typography>
                         <RightBar>
-                            <Button color="inherit" href='/api/v1/new'>New</Button>
-                            <NavLink to={`/api/v1/users/${this.state.currentUser.id}`}>
+                            <Button color="inherit" href='/new'>New</Button>
+                            <NavLink to={`/users/${this.state.currentUser.id}`}>
                                 <Button color="inherit">My Page</Button>
                             </NavLink>
                             <Logout id={this.state.currentUser.id} />
@@ -58,8 +58,8 @@ class Navbar extends Component {
                         Programmer Post
                         </Typography>
                         <RightBar>
-                            <Button color="inherit" href='/api/v1/signup'>Sign Up</Button>
-                            <Button color="inherit" href='/api/v1/login'>Login</Button>
+                            <Button color="inherit" href='/signup'>Sign Up</Button>
+                            <Button color="inherit" href='/login'>Login</Button>
                         </RightBar>
                     </Toolbar>
                 </AppBar>

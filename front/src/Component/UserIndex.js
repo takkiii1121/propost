@@ -23,7 +23,7 @@ export default class UserIndex extends Component {
   userAll() {
     const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
     axios
-      .get("http://localhost:3001/api/v1/users", headers)
+      .get("http://localhost:3001/api/users", headers)
       .then(response => {
         console.log(response.data);
         this.setState({
@@ -66,7 +66,7 @@ class UserListItem extends Component {
         <CardTitle>{this.props.user.name}</CardTitle>
         <CardTime>{this.props.user.created_at.replace('-', '/').split('T')[0].replace('-', '/')}に登録しました</CardTime>
         <CardLinkCenter>
-          <Link to={`/api/v1/users/${this.props.user.id}`}>
+          <Link to={`/users/${this.props.user.id}`}>
             <Button color={'#8aaee6'} hover={'#5c91e6'}>詳細を見る</Button>
           </Link>
         </CardLinkCenter>
