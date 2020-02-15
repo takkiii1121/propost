@@ -1,4 +1,4 @@
-class Api::V1::PostsController < ApplicationController
+class PostsController < ApplicationController
     before_action :authenticate!, only: [:create, :destroy]
     before_action :current_user
     before_action :correct_user, only: [:destroy]

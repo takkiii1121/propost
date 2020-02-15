@@ -1,4 +1,4 @@
-class Api::V1::LikesController < ApplicationController
+class LikesController < ApplicationController
     before_action :current_user
 
     def create
