@@ -47,7 +47,7 @@ class UserSignUp extends Component {
 
     render() {
         return(
-            <FormPage margin={'30px'}>
+            <FormPage>
                 <NotificationSystem ref={this.notificationSystem} />
                 <form onSubmit={this.handleSubmit}>
                     <Field className="field">

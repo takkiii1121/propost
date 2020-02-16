@@ -9,12 +9,22 @@ const Container = styled.article`;
   position: absolute;
   left: 0;
   width: 100%;
-  height: 100%;
-  background: #fff;
-`;
+  height: 130%;
+  background: ${props => props.color};
+`
+const ContainerColor = () => {
+  const NowPath = window.location.pathname
+  if ((NowPath == '/login') || (NowPath == '/signup')) {
+    return '#2f394d'
+  } else {
+    return '#fff'
+  }
+}
+
+const Color = ContainerColor()
 
 ReactDOM.render(
-  <Container>
+  <Container color={Color}>
     <BrowserRouter>
       <Navbar />
       <App />
