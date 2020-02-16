@@ -8,11 +8,8 @@ const LikeButtonStyle = styled.div`
     color: ${props => props.color};
     text-decoration: none;
     margin: 1%;
-    padding:  20px 20px 15px 20px;
     text-align: center;
     position: fixed;
-    top: 55%;
-    right: 2%;
     z-index: 1;
     border: solid;
     border-color: ${props => props.color};
@@ -21,6 +18,16 @@ const LikeButtonStyle = styled.div`
     &:hover {
         background: ${props => props.color};
         color: #fff;
+    }
+    @media (min-width: 768px) {
+        padding: 20px 20px 15px 20px;
+        top: 55%;
+        right: 2%;
+    }
+    @media (max-width: 767px) {
+        padding: 10px 10px 5px 10px;
+        top: 12%;
+        right: 20%;
     }
 `
 

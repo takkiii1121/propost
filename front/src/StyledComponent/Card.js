@@ -15,10 +15,15 @@ export const Card = styled.div`
 `
 
 export const CardTitle = styled.div`
-    font-size: 200%;
     margin: 10px 30px;
     font-weight: bold;
     color: #696969;
+    @media (min-width: 768px) {
+        font-size: 30px;
+    }
+    @media (max-width: 767px) {
+        font-size: 20px;
+    }
 `
 
 export const CardBody = styled.div`
@@ -34,8 +39,13 @@ export const CardBody = styled.div`
 export const CardTime = styled.div`
     margin: 20px;
     text-align: right;
-    font-size: 15px;
     color: #969696;
+    @media (min-width: 768px) {
+        font-size: 15px;
+    }
+    @media (max-width: 767px) {
+        font-size: 10px;
+    }
 `
 
 export const CardLink = styled(Link)`

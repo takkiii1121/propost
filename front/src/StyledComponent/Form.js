@@ -74,8 +74,6 @@ export const Button = styled.button`
     }
 `
 export const CreateButton = styled.button`
-    width: 100px;
-    height: 40px;
     float: right;
     margin: 10px 30px;
     color: #fff;
@@ -83,7 +81,6 @@ export const CreateButton = styled.button`
     border-radius: 20px;
     border-color: #eb8686;
     outline: 0;
-    font-size: 20px;
     z-index: 1;
     overflow: hidden;
     position: relative;
@@ -107,6 +104,16 @@ export const CreateButton = styled.button`
             width: 100%;
         }
     }
+    @media (min-width: 768px) {
+        font-size: 20px;
+        width: 100px;
+        height: 40px;
+    }
+    @media (max-width: 767px) {
+        font-size: 15px;
+        width: 60px;
+        height: 30px;
+    }
 `
 
 export const TitleInput = styled.input`
@@ -121,10 +128,23 @@ export const TitleInput = styled.input`
     &:hover {
         border-color: #666666;
     }
+    @media (min-width: 768px) {
+        font-size: 30px;
+    }
+    @media (max-width: 767px) {
+        font-size: 20px;
+    }
+
 `
 
 export const MarkdownInput = styled.div`
-    margin: 20px;
-    padding: 10px;
-    font-size: 30px;
+    @media (min-width: 768px) {
+        margin: 20px;
+        padding: 10px;
+        font-size: 20px;
+    }
+    @media (max-width: 767px) {
+        margin: 20px;
+        font-size: 15px;
+    }
 `
