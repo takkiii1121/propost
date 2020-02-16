@@ -12,16 +12,30 @@ import styled from 'styled-components'
 import Sidebar from './Component/Sidebar'
 
 const Body = styled.div`
+    @media (min-width: 768px) {
     width: 80%;
     float: right;
     position: absolute;
     left: 280px;
+    }
+
+    @media (max-width: 767px) {
+      width: 100%;
+      z-index: 0;
+    }
 `
 
 const Side = styled.div`
-    width: 20%;
-    float: left;
-    position: fixed;
+    @media (min-width: 768px) {
+      width: 20%;
+      float: left;
+      position: fixed;
+    }
+
+    @media (max-width: 767px) {
+      position: relative;
+      z-index: 200;
+    }
 `
 
 export default class App extends Component {

@@ -7,8 +7,7 @@ import styled from 'styled-components'
 
 const Container = styled.article`;
   width: 100%;
-  min-height: 2000px;
-  height: 150%;
+  height: 100%;
   background: #2f394d;
 `;
 

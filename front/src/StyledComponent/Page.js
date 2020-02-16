@@ -21,8 +21,7 @@ export const PageText = styled.div`
 export const PageColor = styled.div`
     background: #fff;
     padding: 10px;
-    min-height: 1915px;
-    margin: 65px 0 0 0;
+    margin: 65px 0 60px 0;
 `
 
 export const PostBody = styled.div`
