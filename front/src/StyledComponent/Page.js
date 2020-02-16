@@ -20,12 +20,15 @@ export const PageText = styled.div`
 
 export const PageColor = styled.div`
     background: #fff;
-    padding: 10px;
-    margin: 65px 0 60px 0;
+    padding: 60px;
+    margin: 60px 0 60px 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 `
 
 export const PostBody = styled.div`
-    width: 80%;
+    width: 100%;
     margin: 20px;
     padding: 10px;
     font-size: 20px;

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import lscache from 'lscache'
 import axios from "axios";
-import Button from '@material-ui/core/Button';
+import {NavButton} from '../StyledComponent/AppBar'
 import { withRouter } from 'react-router';
 
 class Logout extends Component {
@@ -34,7 +34,7 @@ class Logout extends Component {
 
     render() {
         return(
-            <Button color="inherit" onClick={this.handleClick}>Logout</Button>
+            <NavButton onClick={this.handleClick}>Logout</NavButton>
         )
     }
 }

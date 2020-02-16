@@ -63,10 +63,13 @@ export default class Sidebar extends Component {
             )
         } else {
             return(
-                <SideContainer>
-                    <SideLink to={'/'}>新着記事</SideLink>
-                    <SideLink to={'/users'}>ユーザー一覧</SideLink>
-                </SideContainer>
+                <div>
+                    <HamburgerButton onClick={this.handleClick} isOpen={this.state.isOpen}><MenuIcon /></HamburgerButton>
+                    <SideContainer isOpen={this.state.isOpen}>
+                        <SideLink to={'/'}>新着記事</SideLink>
+                        <SideLink to={'/users'}>ユーザー一覧</SideLink>
+                    </SideContainer>
+                </div>
             )
         }
     }
