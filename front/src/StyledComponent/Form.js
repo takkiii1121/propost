@@ -2,22 +2,32 @@ import styled from 'styled-components'
 
 export const Input = styled.input`
     position: relative;
-    bottom: 0px;
-    height: 50px;
     transition: all 300ms 0s ease;
     border-width: 4px 0 4px 0;
     border-color: #fff;
     color: #fff;
     background: rgba(0,0,0,0);
-    font-size: 30px;
     outline: 0;
-    width: 58%;
-    &:hover {
-        bottom: 10px;
-        height: 70px;
+    @media (min-width: 768px) {
+        width: 58%;
+        font-size: 30px;
+        bottom: 0px;
+        height: 50px;
+        &:hover {
+            bottom: 10px;
+            height: 70px;
+        }
     }
-
-    
+    @media (max-width: 767px) {
+        width: 75%;
+        font-size: 15px;
+        bottom: 0px;
+        height: 20px;
+        &:hover {
+            bottom: 10px;
+            height: 30px;
+        }
+    }
 `
 
 export const Field = styled.div`
@@ -28,18 +38,24 @@ export const Field = styled.div`
 
 export const Label = styled.div`
     color: #fff;
-    font-size: 20px;
     position: relative;
     bottom: 10px;
     transition: all 300ms 0s ease;
+    @media (min-width: 768px) {
+        font-size: 20px;
+    }
+    @media (max-width: 767px) {
+        font-size: 15px;
+    }
 `
 export const FormPage = styled.div`
-    padding: 10px;
-    margin: ${props => props.margin};
+    width: 75%;
+    padding: 60px 0 80px 60px;
+    height: 100%;
 `
 
 export const Button = styled.button`
-    width: 53%;
+    width: 58%;
     height: 40px;
     margin: 50px 0 30px 10%;
     border-radius: 20px;
@@ -71,6 +87,12 @@ export const Button = styled.button`
             left: 0;
             width: 100%;
         }
+    }
+    @media (min-width: 768px) {
+        width: 58%;
+    }
+    @media (max-width: 767px) {
+        width: 75%;
     }
 `
 export const CreateButton = styled.button`
