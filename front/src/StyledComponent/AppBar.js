@@ -35,7 +35,7 @@ export const NavButton = styled.button`
         font-size: 20px;
     }
     @media (max-width: 767px) {
-        font-size: 15px;
+        font-size: 13px;
         display: inline-box;
     }
 `

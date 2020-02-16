@@ -11,15 +11,21 @@ const FadeIn = styled.div`
 const NumOfLike = styled.div`
     color: #2f394d;
     margin: 1%;
-    font-size; 20px;
     text-align: center;
     position: fixed;
-    top: 35%;
     right: 2%;
+    @media (min-width: 768px) {
+        font-size: 20px;
+        top: 35%;
+    }
+    @media (max-width: 767px) {
+        font-size: 10px;
+        top: 12%;
+    }
 `
 
 const Bold = styled.div`
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
 `
 

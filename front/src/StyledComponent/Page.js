@@ -4,51 +4,70 @@ import {Link} from 'react-router-dom'
 export const PageTitle = styled.div`
     margin: 20px;
     padding: 10px;
-    font-size: 30px;
     font-weight: bold;
     color: #666666;
+    @media (min-width: 768px) {
+        font-size: 30px;
+    }
+    @media (max-width: 767px) {
+        font-size: 20px;
+    }
 `
 
 export const PageText = styled.div`
     width: 80%;
     margin: 20px;
     padding: 10px;
-    font-size: 15px;
     color: #666666;
-    opacity: 
+    font-size: 15px;
 `
 
 export const PageColor = styled.div`
     background: #fff;
-    padding: 60px;
     margin: 60px 0 60px 0;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
+    @media (min-width: 768px) {
+        padding: 60px;
+    }
+    @media (max-width: 767px) {
+        padding: 10px;
+    }
 `
 
 export const PostBody = styled.div`
-    width: 100%;
+    width: 80%;
     margin: 20px;
     padding: 10px;
-    font-size: 20px;
     color: #666666;
     border-top: solid;
     border-bottom: solid;
     border-color: #ccc;
+    @media (min-width: 768px) {
+        font-size: 20px;
+    }
+    @media (max-width: 767px) {
+        font-size: 15px;
+    }
 `
 
 export const PageLink = styled(Link)`
     margin: 30px;
     color: #666666;
     text-decoration: none;
-    font-size: 20px;
     display: inline-block;
     transform: scale(1);
     transition: 300ms;
     &:hover {
         transform: scale(1.1);
         cursor: pointer;
+    }
+    @media (min-width: 768px) {
+        font-size: 20px;
+    }
+    @media (max-width: 767px) {
+        font-size: 15px;
     }
 `
 
