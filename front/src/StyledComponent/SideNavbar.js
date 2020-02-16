@@ -30,7 +30,6 @@ export const SideContainer = styled.div`
     background: #2f394d;
     color: #fff
     margin: 50px 0 0 0;
-    
     height: 100%;
     @media (min-width: 768px) {
         position: fixed;
@@ -60,7 +59,7 @@ export const HamburgerButton = styled.button`
         border-radius: 10px;
         position: fixed;
         left: ${props => props.isOpen ? '100px' : '-10px'};
-        top: 110px;
+        top: 70px;
     }
     
 `

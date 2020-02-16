@@ -6,9 +6,11 @@ import Navbar from "./Component/Navbar"
 import styled from 'styled-components'
 
 const Container = styled.article`;
+  position: absolute;
+  left: 0;
   width: 100%;
   height: 100%;
-  background: #2f394d;
+  background: #fff;
 `;
 
 ReactDOM.render(

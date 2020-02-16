@@ -3,11 +3,9 @@ import lscache from 'lscache'
 import axios from "axios";
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Logout from './UserLogout'
 import {withStyles} from '@material-ui/styles';
-import {commonStyle, NavLink, RightBar} from '../StyledComponent/AppBar'
+import {commonStyle, NavLink, RightBar, NavButton} from '../StyledComponent/AppBar'
 
 
 class Navbar extends Component {
@@ -39,12 +37,10 @@ class Navbar extends Component {
             return(
                 <AppBar position="relative" classes={{colorPrimary: this.props.classes.appBarColorDefault}}>
                     <Toolbar>
-                        <Typography variant="h6" className={"title"}>Programmer Post</Typography>
+                        <NavLink to={'/'}><NavButton>Programmer Post</NavButton></NavLink>
                         <RightBar>
-                            <Button color="inherit" href='/new'>New</Button>
-                            <NavLink to={`/users/${this.state.currentUser.id}`}>
-                                <Button color="inherit">My Page</Button>
-                            </NavLink>
+                            <NavLink to={'/new'}><NavButton>New</NavButton></NavLink>
+                            <NavLink to={`/users/${this.state.currentUser.id}`}><NavButton>My Page</NavButton></NavLink>
                             <Logout id={this.state.currentUser.id} />
                         </RightBar>
                     </Toolbar>
@@ -54,12 +50,10 @@ class Navbar extends Component {
             return(
                 <AppBar position="relative" classes={{colorPrimary: this.props.classes.appBarColorDefault}}>
                     <Toolbar>
-                        <Typography variant="h6" className={"title"}>
-                        Programmer Post
-                        </Typography>
+                        <NavLink to={'/'}><NavButton>Programmer Post</NavButton></NavLink>
                         <RightBar>
-                            <Button color="inherit" href='/signup'>Sign Up</Button>
-                            <Button color="inherit" href='/login'>Login</Button>
+                            <NavLink to={'/signup'}><NavButton>Sign Up</NavButton></NavLink>
+                            <NavLink to={'/login'}><NavButton>Login</NavButton></NavLink>
                         </RightBar>
                     </Toolbar>
                 </AppBar>

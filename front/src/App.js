@@ -16,7 +16,7 @@ const Body = styled.div`
     width: 80%;
     float: right;
     position: absolute;
-    left: 280px;
+    left: 272px;
     }
 
     @media (max-width: 767px) {
@@ -27,7 +27,7 @@ const Body = styled.div`
 
 const Side = styled.div`
     @media (min-width: 768px) {
-      width: 20%;
+      width: 10%;
       float: left;
       position: fixed;
     }
