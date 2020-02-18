@@ -34,7 +34,7 @@ export const SideContainer = styled.div`
     @media (min-width: 768px) {
         position: fixed;
         width: 232px;
-        padding: 90px 20px 600px 20px;
+        padding: 140px 20px 600px 20px;
     }
     @media (max-width: 767px) {
         transition: 300ms;
