@@ -26,8 +26,9 @@ const LikeButtonStyle = styled.div`
     }
     @media (max-width: 767px) {
         padding: 10px 10px 5px 10px;
-        top: 12%;
-        right: 20%;
+        top: 14%;
+        right: 15%;
+        transform: scale(0.8);
     }
 `
 
