@@ -23,14 +23,13 @@ export const PageText = styled.div`
 `
 
 export const PageColor = styled.div`
-    background: #fff;
     margin: 60px 0 0 0;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
     padding: 60px;
     @media (min-width: 1025px) {
-        padding: 50px 50px 0px 30px;
+        padding: 50px 70px 100px 30px;
     }
     @media (max-width: 767px) {
         padding: 10px;
