@@ -69,7 +69,7 @@ class LikePostListItem extends Component {
                 <CardTime>{this.props.post.created_at.replace('-', '/').split('T')[0].replace('-', '/')}に投稿しました</CardTime>
                 <CardLinkCenter>
                 <Link to={`/posts/${this.props.post.id}`}>
-                    <Button color={'#8aaee6'} hover={'#5c91e6'}>続きを見る</Button>
+                    <Button color={'#8aaee6'} hover={'#6088c6'}>続きを見る</Button>
                 </Link>
                 </CardLinkCenter>
             </Card>

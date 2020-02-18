@@ -7,6 +7,8 @@ import Logout from './UserLogout'
 import {withStyles} from '@material-ui/styles';
 import {commonStyle, NavLink, RightBar, NavButton} from '../StyledComponent/AppBar'
 import { withRouter } from 'react-router';
+import CreateIcon from '@material-ui/icons/Create';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 
 class Navbar extends Component {
@@ -48,8 +50,8 @@ class Navbar extends Component {
                     <Toolbar>
                         <NavLink to={'/'}><NavButton>ProPost</NavButton></NavLink>
                         <RightBar>
-                            <NavLink to={'/new'}><NavButton>投稿する</NavButton></NavLink>
-                            <NavLink to={`/users/${this.state.currentUser.id}`}><NavButton>マイページ</NavButton></NavLink>
+                            <NavLink to={'/new'} ><NavButton content={'投稿する'}><CreateIcon /></NavButton></NavLink>
+                            <NavLink to={`/users/${this.state.currentUser.id}`}><NavButton content={'マイページ'}><AccountCircleIcon /></NavButton></NavLink>
                             <Logout id={this.state.currentUser.id} />
                         </RightBar>
                     </Toolbar>
