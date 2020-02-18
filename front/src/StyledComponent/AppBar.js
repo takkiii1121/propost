@@ -21,21 +21,29 @@ export const RightBar = styled.div`
     margin: 20px;
 `
 
-export const NavButton = styled.button`
+export const NavButton = styled.button.attrs(props => ({
+    contents: props.content
+}))`
     color: #fff;
     background: #6088c6;
     border-radius: 20px;
     border: none;
     padding: 10px;
     outline: none;
+    display: inline;
     &:hover {
         background: #567bb3;
     }
+    
     @media (min-width: 768px) {
         font-size: 20px;
+        &::after {
+            content: '${props => props.contents}';
+        }
     }
     @media (max-width: 767px) {
-        font-size: 13px;
-        display: inline-box;
+        font-size: 16px;
+
     }
 `
+
