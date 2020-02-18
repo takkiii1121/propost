@@ -13,7 +13,7 @@ export default class UserShow extends Component {
   
   componentDidMount() {
     const notification = this.notificationSystem.current
-    if (this.props.state != undefined) {
+    if (this.props.state !== undefined) {
       const message = this.props.state.message
       const level = this.props.state.level
       notification.addNotification({

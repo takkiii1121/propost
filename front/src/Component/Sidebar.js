@@ -41,7 +41,7 @@ export default class Sidebar extends Component {
     render() {
         const NowPath = window.location.pathname
         console.log(NowPath)
-        if ((NowPath == '/login') || (NowPath == '/signup')) {
+        if ((NowPath === '/login') || (NowPath === '/signup')) {
             return(
                 <SideContainer />
             )

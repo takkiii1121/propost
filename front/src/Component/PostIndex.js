@@ -39,7 +39,7 @@ export default class PostIndex extends Component {
       .catch(error => {
         console.log(error.response);
       });
-      if (this.props.location.state != undefined) {
+      if (this.props.location.state !== undefined) {
         const message = this.props.location.state.message
         const level = this.props.location.state.level
         console.log(message)
