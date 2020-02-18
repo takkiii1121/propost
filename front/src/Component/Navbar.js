@@ -37,10 +37,10 @@ class Navbar extends Component {
             return(
                 <AppBar position="relative" classes={{colorPrimary: this.props.classes.appBarColorDefault}}>
                     <Toolbar>
-                        <NavLink to={'/'}><NavButton>Programmer Post</NavButton></NavLink>
+                        <NavLink to={'/'}><NavButton>ProPost</NavButton></NavLink>
                         <RightBar>
-                            <NavLink to={'/new'}><NavButton>New</NavButton></NavLink>
-                            <NavLink to={`/users/${this.state.currentUser.id}`}><NavButton>My Page</NavButton></NavLink>
+                            <NavLink to={'/new'}><NavButton>投稿する</NavButton></NavLink>
+                            <NavLink to={`/users/${this.state.currentUser.id}`}><NavButton>マイページ</NavButton></NavLink>
                             <Logout id={this.state.currentUser.id} />
                         </RightBar>
                     </Toolbar>
@@ -50,10 +50,10 @@ class Navbar extends Component {
             return(
                 <AppBar position="relative" classes={{colorPrimary: this.props.classes.appBarColorDefault}}>
                     <Toolbar>
-                        <NavLink to={'/'}><NavButton>Programmer Post</NavButton></NavLink>
+                        <NavLink to={'/'}><NavButton>ProPost</NavButton></NavLink>
                         <RightBar>
-                            <NavLink to={'/signup'}><NavButton>Sign Up</NavButton></NavLink>
-                            <NavLink to={'/login'}><NavButton>Login</NavButton></NavLink>
+                            <NavLink to={'/signup'}><NavButton>サインアップ</NavButton></NavLink>
+                            <NavLink to={'/login'}><NavButton>サインイン</NavButton></NavLink>
                         </RightBar>
                     </Toolbar>
                 </AppBar>

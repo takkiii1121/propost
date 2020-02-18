@@ -52,14 +52,14 @@ class UserLogin extends Component {
                 <NotificationSystem ref={this.notificationSystem} />
                 <form onSubmit={this.handleSubmit}>
                     <Field className="field" >
-                        <Label htmlFor="user_email" className="label">Email</Label>
+                        <Label htmlFor="user_email" className="label">Eメール</Label>
                         <Input type="email" name="email"/>
                     </Field>
                     <Field className="field">
-                        <Label htmlFor="user_password" >Password</Label>
+                        <Label htmlFor="user_password" >パスワード</Label>
                         <Input type="password" name="password" />
                     </Field>
-                    <Button>Send</Button>
+                    <Button>送信</Button>
                 </form>
             </FormPage>
         )

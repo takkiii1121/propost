@@ -34,7 +34,7 @@ class Logout extends Component {
 
     render() {
         return(
-            <NavButton onClick={this.handleClick}>Logout</NavButton>
+            <NavButton onClick={this.handleClick}>ログアウト</NavButton>
         )
     }
 }

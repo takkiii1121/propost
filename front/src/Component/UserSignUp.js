@@ -51,22 +51,22 @@ class UserSignUp extends Component {
                 <NotificationSystem ref={this.notificationSystem} />
                 <form onSubmit={this.handleSubmit}>
                     <Field className="field">
-                        <Label htmlFor="user_name">Name</Label>
+                        <Label htmlFor="user_name">お名前</Label>
                         <Input type="text" name="name" />
                     </Field>
                     <Field className="field">
-                        <Label htmlFor="user_email">Email</Label>
+                        <Label htmlFor="user_email">Eメール</Label>
                         <Input type="email" name="email" />
                     </Field>
                     <Field className="field">
-                        <Label htmlFor="user_password">Password</Label>
+                        <Label htmlFor="user_password">パスワード</Label>
                         <Input type="password" name="password" />
                     </Field>
                     <Field className="field">
-                        <Label htmlFor="user_password_confirmation" >Password Confirmation</Label>
+                        <Label htmlFor="user_password_confirmation" >パスワード(確認)</Label>
                         <Input type="password" name="password_confirmation" />
                     </Field>
-                    <Button>Send</Button>
+                    <Button>送信</Button>
                 </form>
             </FormPage>
         )
