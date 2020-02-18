@@ -31,6 +31,7 @@ export const NavButton = styled.button.attrs(props => ({
     padding: 10px;
     outline: none;
     display: inline;
+    transition: 300ms;
     &:hover {
         background: #567bb3;
     }
