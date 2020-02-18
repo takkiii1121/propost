@@ -35,11 +35,11 @@ export default class LikePosts extends Component {
 
     render() {
         return(
-            <PageColor>
+            <div>
                 <PageTitle>{this.props.user.name}さんがいいねした記事</PageTitle>
                 <PageText>{this.state.count}件</PageText>
                 <LikePostList posts={this.state.likePosts} />
-            </PageColor>
+            </div>
         )
     }
 }

@@ -20,7 +20,7 @@ const NumOfLike = styled.div`
     }
     @media (max-width: 767px) {
         font-size: 10px;
-        top: 12%;
+        top: 14%;
     }
 `
 

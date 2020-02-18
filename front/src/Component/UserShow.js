@@ -25,12 +25,12 @@ export default class UserShow extends Component {
 
   render() {
     return (
-      <PageColor>
+      <div>
         <NotificationSystem ref={this.notificationSystem} />
         <PageTitle>{this.props.user.name}さんの投稿</PageTitle>
         <PageText>{this.props.posts.length}件</PageText>
         <PostList posts={this.props.posts} mypage={this.props.mypage} id={this.props.user.id} />
-      </PageColor>
+      </div>
     );
   }
 }
