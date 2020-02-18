@@ -4,12 +4,11 @@ import {Link} from 'react-router-dom'
 export const SideLink = styled(Link)`
     text-decoration: none;
     outline: none;
-    margin: 0;
     color: #fff;
     display: block;
     text-align: center;
     margin: 5px;
-    padding: 0 5px;
+    padding: 10px 5px;
     transition: 300ms;
     transform: scale(1);
     @media (min-width: 1025px) {
@@ -38,7 +37,7 @@ export const SideContainer = styled.div`
     padding: 140px 0 600px 0;
     @media (min-width: 1025px) {
         width: 232px;
-        padding: 140px 10% 600px 1%;
+        padding: 200px 0 100px 0;
     }
     @media (max-width: 767px) {
         transition: 300ms;

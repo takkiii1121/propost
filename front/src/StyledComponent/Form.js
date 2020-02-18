@@ -50,8 +50,8 @@ export const Label = styled.div`
 `
 export const FormPage = styled.div`
     width: 75%;
-    padding: 60px 0 80px 60px;
-    height: 100%;
+    padding: 60px 0 0 60px;
+    height: 70%;
 `
 
 export const Button = styled.button`
@@ -62,7 +62,6 @@ export const Button = styled.button`
     position: relative;
     background: #eb8686;
     color: #fff;
-    font-size: 20px;
     border-color: #eb8686;
     outline: 0;
     transition: 300ms;
@@ -90,9 +89,11 @@ export const Button = styled.button`
     }
     @media (min-width: 768px) {
         width: 58%;
+        font-size: 20px;
     }
     @media (max-width: 767px) {
         width: 75%;
+        font-size: 15px;
     }
 `
 export const CreateButton = styled.button`
