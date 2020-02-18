@@ -6,6 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Logout from './UserLogout'
 import {withStyles} from '@material-ui/styles';
 import {commonStyle, NavLink, RightBar, NavButton} from '../StyledComponent/AppBar'
+import { withRouter } from 'react-router';
 
 
 class Navbar extends Component {
@@ -15,6 +16,7 @@ class Navbar extends Component {
             currentUser: {},
             token: lscache.get('token')
         }
+        this.handleClick = this.handleClick.bind(this)
     }
 
     componentDidMount() {
@@ -30,6 +32,13 @@ class Navbar extends Component {
         .catch(error => {
             console.log(error.response);
         });
+    }
+
+    handleClick(event) {
+        event.preventDefault()
+        const path = event.currentTarget.getAttribute('data-path')
+        this.props.history.push({pathname: path})
+        window.location.reload()
     }
     
     render() {
@@ -50,10 +59,10 @@ class Navbar extends Component {
             return(
                 <AppBar position="relative" classes={{colorPrimary: this.props.classes.appBarColorDefault}}>
                     <Toolbar>
-                        <NavLink to={'/'}><NavButton>ProPost</NavButton></NavLink>
+                        <NavButton onClick={this.handleClick} data-path="/">ProPost</NavButton>
                         <RightBar>
-                            <NavLink to={'/signup'}><NavButton>サインアップ</NavButton></NavLink>
-                            <NavLink to={'/login'}><NavButton>サインイン</NavButton></NavLink>
+                            <NavButton onClick={this.handleClick} data-path="/signup">サインアップ</NavButton>
+                            <NavButton onClick={this.handleClick} data-path="/login">サインイン</NavButton>
                         </RightBar>
                     </Toolbar>
                 </AppBar>
@@ -62,4 +71,4 @@ class Navbar extends Component {
     }
 }
 
-export default withStyles(commonStyle)(Navbar)
+export default withStyles(commonStyle)(withRouter(Navbar))

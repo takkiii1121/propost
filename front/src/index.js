@@ -14,7 +14,7 @@ const Container = styled.article`;
 `
 const ContainerColor = () => {
   const NowPath = window.location.pathname
-  if ((NowPath == '/login') || (NowPath == '/signup')) {
+  if ((NowPath === '/login') || (NowPath === '/signup')) {
     return '#2f394d'
   } else {
     return '#fff'

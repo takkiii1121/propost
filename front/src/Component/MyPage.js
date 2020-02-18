@@ -29,7 +29,7 @@ export default class MyPage extends Component {
         axios
             .get(`http://localhost:3001/api/users/${params.id}`, headers)
             .then(response => {
-                if (response.data.user.created_at != undefined) {
+                if (response.data.user.created_at !== undefined) {
                     this.setState({
                         createdAt: response.data.user.created_at.replace('-', '/').split('T')[0].replace('-', '/')
                     })

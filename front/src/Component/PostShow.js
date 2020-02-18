@@ -38,7 +38,7 @@ export default class PostShow extends Component {
     };
     this.handleClick = this.handleClick.bind(this)
   }
- 
+
   componentDidMount() {
     const { match: { params } } = this.props;
     const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
@@ -46,7 +46,7 @@ export default class PostShow extends Component {
     axios
       .get(`http://localhost:3001/api/posts/${params.id}`, headers)
       .then(response => {
-        if (response.data.post.created_at != undefined) {
+        if (response.data.post.created_at !== undefined) {
           this.setState({
               createdAt: response.data.post.created_at.replace('-', '/').split('T')[0].replace('-', '/')
           })
