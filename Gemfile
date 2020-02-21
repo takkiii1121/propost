@@ -1,6 +1,11 @@
-source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+# frozen_string_literal: true
 
+source "https://rubygems.org"
+
+git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+
+# gem "rails"
+gem 'foreman'
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -32,6 +37,10 @@ group :development, :test do
 end
 
 group :development do
+end
+
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
