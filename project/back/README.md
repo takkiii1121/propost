@@ -8,6 +8,7 @@ You can post articles using this application.
 * Bearer Token Auth
 * Axios
 * styled-components
+* heroku
 
 
 ## Description
@@ -17,6 +18,9 @@ You can use _propost_ on a smartphone.
 
 <img width="1435" alt="スクリーンショット 2020-02-18 23 21 51" src="https://user-images.githubusercontent.com/50746883/74744821-38402c80-52a6-11ea-85b1-d690b060b9cc.png">
 
+
+## DEMO
+[propost](https://propost-frontend.herokuapp.com)
 
 ## Features
 * SPA
