@@ -28,7 +28,7 @@ export default class PostIndex extends Component {
     const notification = this.notificationSystem.current
 
     axios
-      .get("http://localhost:3001/api/posts", headers)
+      .get(`${process.env.REACT_APP_SERVER_URL}/api/posts`, headers)
       .then(response => {
         console.log(response.data);
         this.setState({

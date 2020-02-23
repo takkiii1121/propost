@@ -41,7 +41,7 @@ export default class LikeUsers extends Component {
     componentDidMount() {
         const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
         axios
-        .get(`http://localhost:3001/api/posts/${this.props.id}/liked`, headers)
+        .get(`${process.env.REACT_APP_SERVER_URL}/api/posts/${this.props.id}/liked`, headers)
         .then(response => {
             console.log(response.data);
             this.setState({

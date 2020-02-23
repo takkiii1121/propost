@@ -2,7 +2,11 @@ class ApplicationController < ActionController::API
     include ActionController::HttpAuthentication::Token::ControllerMethods
     
     def current_user
-        @current_user ||= User.find_by(token: request.headers['Authorization'].split[1])
+        if request.headers['Authorization'].blank?
+            @current_user = nil
+        else
+            @current_user ||= User.find_by(token: request.headers['Authorization'].split[1])
+        end
     end
 
     def create_token

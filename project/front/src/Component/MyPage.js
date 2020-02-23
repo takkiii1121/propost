@@ -27,7 +27,7 @@ export default class MyPage extends Component {
         const { match: { params } } = this.props;
         const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
         axios
-            .get(`http://localhost:3001/api/users/${params.id}`, headers)
+            .get(`${process.env.REACT_APP_SERVER_URL}/api/users/${params.id}`, headers)
             .then(response => {
                 if (response.data.user.created_at !== undefined) {
                     this.setState({

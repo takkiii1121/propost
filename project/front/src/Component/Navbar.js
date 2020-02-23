@@ -24,7 +24,7 @@ class Navbar extends Component {
     componentDidMount() {
         const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
         axios
-        .get(`http://localhost:3001/api/me`, headers)
+        .get(`${process.env.REACT_APP_SERVER_URL}/api/me`, headers)
         .then(response => {
             this.setState({
             currentUser: response.data

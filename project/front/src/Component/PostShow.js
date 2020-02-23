@@ -44,7 +44,7 @@ export default class PostShow extends Component {
     const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
 
     axios
-      .get(`http://localhost:3001/api/posts/${params.id}`, headers)
+      .get(`${process.env.REACT_APP_SERVER_URL}/api/posts/${params.id}`, headers)
       .then(response => {
         if (response.data.post.created_at !== undefined) {
           this.setState({

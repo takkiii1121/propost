@@ -15,7 +15,7 @@ class Logout extends Component {
         const data = {id: this.props.id}
 
         axios
-            .post('http://localhost:3001/api/logout', data)
+            .post(`${process.env.REACT_APP_SERVER_URL}/api/logout`, data)
             .then((response) => {
                 console.log(response.data)
                 if (response.data.logout) {

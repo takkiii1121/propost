@@ -23,7 +23,7 @@ class PostDestroy extends Component {
         const notification = this.notificationSystem.current
 
         axios
-            .delete(`http://localhost:3001/api/posts/${this.props.id}`, headers, data)
+            .delete(`${process.env.REACT_APP_SERVER_URL}/api/posts/${this.props.id}`, headers, data)
             .then((response) => {
                 console.log(response.data)
                 if (response.data.destroy) {

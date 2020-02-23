@@ -22,7 +22,7 @@ class UserLogin extends Component {
         const notification = this.notificationSystem.current
 
         axios
-            .post('http://localhost:3001/api/login', data)
+            .post(`${process.env.REACT_APP_SERVER_URL}/api/login`, data)
             .then((response) => {
                 console.log(response.data.token)
                 this.setState({

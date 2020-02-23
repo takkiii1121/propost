@@ -38,7 +38,7 @@ class PostNew extends Component {
         // console.log(this.state.content)
 
         axios
-            .post('http://localhost:3001/api/posts', data, headers)
+            .post(`${process.env.REACT_APP_SERVER_URL}/api/posts`, data, headers)
             .then((response) => {
                 console.log(response.data.posted)
                 if (response.data.posted) {

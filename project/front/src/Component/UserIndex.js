@@ -23,7 +23,7 @@ export default class UserIndex extends Component {
   userAll() {
     const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
     axios
-      .get("http://localhost:3001/api/users", headers)
+      .get(`${process.env.REACT_APP_SERVER_URL}/api/users`, headers)
       .then(response => {
         console.log(response.data);
         this.setState({

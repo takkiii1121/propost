@@ -21,7 +21,7 @@ class UserSignUp extends Component {
         const notification = this.notificationSystem.current
 
         axios
-            .post('http://localhost:3001/api/users', data)
+            .post(`${process.env.REACT_APP_SERVER_URL}/api/users`, data)
             .then((response) => {
                 console.log(response.data)
                 this.setState({

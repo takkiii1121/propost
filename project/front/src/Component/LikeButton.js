@@ -49,7 +49,7 @@ export default class LikeButton extends Component {
         const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
         const data = {id: this.props.id}
         axios
-        .post('http://localhost:3001/api/unlike', data, headers)
+        .post(`${process.env.REACT_APP_SERVER_URL}/api/unlike`, data, headers)
         .then(response => {
             console.log(response.data);
             this.setState({
@@ -66,7 +66,7 @@ export default class LikeButton extends Component {
         const headers = {headers: {Authorization: `Bearer ${this.state.token}`}}
         const data = {id: this.props.id}
         axios
-        .post('http://localhost:3001/api/like', data, headers)
+        .post(`${process.env.REACT_APP_SERVER_URL}/api/like`, data, headers)
         .then(response => {
             console.log(response.data);
             this.setState({
