@@ -85,9 +85,9 @@ GEM
     mysql2 (0.5.3)
     mysql2 (0.5.3-x64-mingw32)
     nio4r (2.5.2)
-    nokogiri (1.10.5)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.5-x64-mingw32)
+    nokogiri (1.10.8-x64-mingw32)
       mini_portile2 (~> 2.4.0)
     puma (4.3.1)
       nio4r (~> 2.0)
@@ -150,6 +150,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   mysql2 (>= 0.4.4)
+  nokogiri (>= 1.10.8)
   puma (>= 4.3.1)
   rack (>= 2.0.8)
   rack-cors
