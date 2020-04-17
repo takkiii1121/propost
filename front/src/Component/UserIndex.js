@@ -10,7 +10,6 @@ export default class UserIndex extends Component {
     super(props);
     this.state = {
       users: [],
-      isAuthenticate: false,
       token: lscache.get('token')
     };
   }
@@ -27,8 +26,7 @@ export default class UserIndex extends Component {
       .then(response => {
         console.log(response.data);
         this.setState({
-          users: response.data.users,
-          isAuthenticate: response.data.isAuthenticate
+          users: response.data.users
         });
       })
       .catch(error => {

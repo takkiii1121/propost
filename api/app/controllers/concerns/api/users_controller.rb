@@ -6,9 +6,9 @@ class Api::UsersController < ApplicationController
     def index
         @users = User.order(created_at: :desc)
         if current_user != nil
-            render json: {users: @users, isAuthenticate: true}
+            render json: {users: @users}
         else
-            render json: {users: @users, isAuthenticate: false}
+            render json: {users: @users}
         end
     end
 
