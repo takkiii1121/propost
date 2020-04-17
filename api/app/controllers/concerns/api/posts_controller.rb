@@ -6,9 +6,9 @@ class Api::PostsController < ApplicationController
     def index
         @posts = Post.order(created_at: :desc)
         if current_user != nil
-            render json: {posts: @posts, isAuthenticate: true}
+            render json: {posts: @posts}
         else
-            render json: {posts: @posts, isAuthenticate: false}
+            render json: {posts: @posts}
         end
     end
 

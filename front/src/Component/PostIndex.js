@@ -12,8 +12,7 @@ export default class PostIndex extends Component {
     super(props);
     this.state = {
       posts: [],
-      token: lscache.get('token'),
-      isAuthenticate: false
+      token: lscache.get('token')
     };
     this.notificationSystem = React.createRef()
   }
@@ -32,8 +31,7 @@ export default class PostIndex extends Component {
       .then(response => {
         console.log(response.data);
         this.setState({
-          posts: response.data.posts,
-          isAuthenticate: response.data.isAuthenticate
+          posts: response.data.posts
         });
       })
       .catch(error => {
